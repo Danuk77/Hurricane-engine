@@ -6,9 +6,20 @@
   */
 class Particle{
   public:
-    Particle(glm::vec3 position, glm::vec3 velocity, glm::vec3 acceleration, float damping);
+    Particle(glm::vec3 position, glm::vec3 velocity, glm::vec3 acceleration, float damping, float mass);
     glm::vec3 position;
     glm::vec3 velocity;
     glm::vec3 acceleration;
-    float damping;
+    float damping_factor;
+
+    //void set_position(glm::vec3 position);
+    //void set_velocity(glm::vec3 velocity);
+    //void set_acceleration(glm::vec3 acceleration);
+    //void set_damping_factor(float damping_factor);
+
+    // Integrate GLFW and use its timer in the engine
+    void integrate(float time_duration);
+
+  protected:
+    float inverse_mass;
 };
