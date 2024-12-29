@@ -1,0 +1,8 @@
+[
+{
+  "directory": "X:/Side projects/Hurricane/build",
+  "command": "C:\\msys64\\mingw64\\bin\\c++.exe -I\"X:/Side projects/Hurricane/include\" -o CMakeFiles\\Hurricane.dir\\src\\main.cpp.obj -c \"X:\\Side projects\\Hurricane\\src\\main.cpp\"",
+  "file": "X:\\Side projects\\Hurricane\\src\\main.cpp",
+  "output": "CMakeFiles\\Hurricane.dir\\src\\main.cpp.obj"
+}
+]
