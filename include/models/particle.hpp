@@ -11,19 +11,18 @@ public:
   glm::vec3 position;
   glm::vec3 velocity;
   glm::vec3 acceleration;
+  float mass;
   float damping_factor;
 
   glm::vec3 force_accumulated;
 
-  // void set_position(glm::vec3 position);
-  // void set_velocity(glm::vec3 velocity);
-  // void set_acceleration(glm::vec3 acceleration);
-  // void set_damping_factor(float damping_factor);
-
   // Integrate GLFW and use its timer in the engine
   void integrate(float time_duration);
+  void add_force(glm::vec3 force);
+  bool has_inifinite_mass();
 
 private:
+  void clear_accumulated_force();
 protected:
   float inverse_mass;
 };
