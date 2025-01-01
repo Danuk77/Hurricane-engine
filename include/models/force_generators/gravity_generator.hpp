@@ -7,6 +7,6 @@ class GravityGenerator : public ForceGenerator {
 public:
   glm::vec3 gravity;
 
-  GravityGenerator(const glm::vec3 gravity): gravity(gravity){};
+  GravityGenerator(const glm::vec3 gravity) : gravity(gravity){};
   void generate_force(Particle *particle, float duration) const override;
 };
