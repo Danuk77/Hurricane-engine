@@ -14,6 +14,7 @@ public:
   glm::vec3 acceleration;
   float mass;
   float damping_factor;
+  float inverse_mass;
 
   glm::vec3 force_accumulated;
 
@@ -24,6 +25,4 @@ public:
 
 private:
   void clear_accumulated_force();
-protected:
-  float inverse_mass;
 };
