@@ -1,18 +1,17 @@
 cmake_minimum_required(VERSION 3.12)
 project(Hurricane)
+
+add_compile_definitions(PROJECT_ROOT="${CMAKE_CURRENT_SOURCE_DIR}")
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # Specify the source file locations
-file(GLOB SRC ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp)
-
-# Helper rendering code (Will be taken out when making it a library)
-file(GLOB RENDER ${CMAKE_CURRENT_SOURCE_DIR}/src/rendering/*.cpp)
+file(GLOB_RECURSE SRC ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp)
 
 # Other dependencies
 file(GLOB LIBS ${CMAKE_CURRENT_SOURCE_DIR}/lib/*.a)
 file(GLOB DEPENDENCIES ${CMAKE_CURRENT_SOURCE_DIR}/src/dep/*.cpp)
 
-set(SOURCES ${SRC} ${RENDER} ${DEPENDENCIES})
+set(SOURCES ${SRC} ${DEPENDENCIES})
 
 add_executable(Hurricane ${SOURCES})
 

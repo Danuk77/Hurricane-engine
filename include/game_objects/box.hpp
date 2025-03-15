@@ -1,7 +1,9 @@
 #pragma  once
 #include <string>
-#include "shader.hpp"
+#include "shaders/shader.hpp"
 #include "transform.hpp"
+
+Shader load_shaders();
 
 class Box{
 public:
@@ -20,6 +22,7 @@ private:
   static glm::mat4 projection_matrix;
   glm::mat4 model_matrix;
 
+  void load_shaders();
   void set_vertex_data();
   void initialise_model_matrix();
 };

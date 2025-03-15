@@ -1,5 +1,6 @@
 #include "glm/gtc/type_ptr.hpp"
-#include "shader.hpp"
+#include "shaders/shader.hpp"
+#include <exception>
 #include <stdexcept>
 /**
  * Interface for loading an interacting with a loaded shader program 
