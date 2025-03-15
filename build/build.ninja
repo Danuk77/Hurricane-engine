@@ -45,66 +45,77 @@ cmake_ninja_workdir = X$:/Side$ projects/Hurricane/build/
 build cmake_object_order_depends_target_Hurricane: phony || CMakeFiles/Hurricane.dir
 
 build CMakeFiles/Hurricane.dir/src/colliders/box_collider.cpp.obj: CXX_COMPILER__Hurricane_unscanned_ X$:/Side$ projects/Hurricane/src/colliders/box_collider.cpp || cmake_object_order_depends_target_Hurricane
+  DEFINES = -DPROJECT_ROOT="\"X:/Side projects/Hurricane\""
   DEP_FILE = CMakeFiles\Hurricane.dir\src\colliders\box_collider.cpp.obj.d
   INCLUDES = -I"X:/Side projects/Hurricane/include"
   OBJECT_DIR = CMakeFiles\Hurricane.dir
   OBJECT_FILE_DIR = CMakeFiles\Hurricane.dir\src\colliders
 
 build CMakeFiles/Hurricane.dir/src/dep/glad.cpp.obj: CXX_COMPILER__Hurricane_unscanned_ X$:/Side$ projects/Hurricane/src/dep/glad.cpp || cmake_object_order_depends_target_Hurricane
+  DEFINES = -DPROJECT_ROOT="\"X:/Side projects/Hurricane\""
   DEP_FILE = CMakeFiles\Hurricane.dir\src\dep\glad.cpp.obj.d
   INCLUDES = -I"X:/Side projects/Hurricane/include"
   OBJECT_DIR = CMakeFiles\Hurricane.dir
   OBJECT_FILE_DIR = CMakeFiles\Hurricane.dir\src\dep
 
 build CMakeFiles/Hurricane.dir/src/file_reader.cpp.obj: CXX_COMPILER__Hurricane_unscanned_ X$:/Side$ projects/Hurricane/src/file_reader.cpp || cmake_object_order_depends_target_Hurricane
+  DEFINES = -DPROJECT_ROOT="\"X:/Side projects/Hurricane\""
   DEP_FILE = CMakeFiles\Hurricane.dir\src\file_reader.cpp.obj.d
   INCLUDES = -I"X:/Side projects/Hurricane/include"
   OBJECT_DIR = CMakeFiles\Hurricane.dir
   OBJECT_FILE_DIR = CMakeFiles\Hurricane.dir\src
 
 build CMakeFiles/Hurricane.dir/src/game_objects/box.cpp.obj: CXX_COMPILER__Hurricane_unscanned_ X$:/Side$ projects/Hurricane/src/game_objects/box.cpp || cmake_object_order_depends_target_Hurricane
+  DEFINES = -DPROJECT_ROOT="\"X:/Side projects/Hurricane\""
   DEP_FILE = CMakeFiles\Hurricane.dir\src\game_objects\box.cpp.obj.d
   INCLUDES = -I"X:/Side projects/Hurricane/include"
   OBJECT_DIR = CMakeFiles\Hurricane.dir
   OBJECT_FILE_DIR = CMakeFiles\Hurricane.dir\src\game_objects
 
 build CMakeFiles/Hurricane.dir/src/game_objects/factories/box_factory.cpp.obj: CXX_COMPILER__Hurricane_unscanned_ X$:/Side$ projects/Hurricane/src/game_objects/factories/box_factory.cpp || cmake_object_order_depends_target_Hurricane
+  DEFINES = -DPROJECT_ROOT="\"X:/Side projects/Hurricane\""
   DEP_FILE = CMakeFiles\Hurricane.dir\src\game_objects\factories\box_factory.cpp.obj.d
   INCLUDES = -I"X:/Side projects/Hurricane/include"
   OBJECT_DIR = CMakeFiles\Hurricane.dir
   OBJECT_FILE_DIR = CMakeFiles\Hurricane.dir\src\game_objects\factories
 
 build CMakeFiles/Hurricane.dir/src/main.cpp.obj: CXX_COMPILER__Hurricane_unscanned_ X$:/Side$ projects/Hurricane/src/main.cpp || cmake_object_order_depends_target_Hurricane
+  DEFINES = -DPROJECT_ROOT="\"X:/Side projects/Hurricane\""
   DEP_FILE = CMakeFiles\Hurricane.dir\src\main.cpp.obj.d
   INCLUDES = -I"X:/Side projects/Hurricane/include"
   OBJECT_DIR = CMakeFiles\Hurricane.dir
   OBJECT_FILE_DIR = CMakeFiles\Hurricane.dir\src
 
 build CMakeFiles/Hurricane.dir/src/particle.cpp.obj: CXX_COMPILER__Hurricane_unscanned_ X$:/Side$ projects/Hurricane/src/particle.cpp || cmake_object_order_depends_target_Hurricane
+  DEFINES = -DPROJECT_ROOT="\"X:/Side projects/Hurricane\""
   DEP_FILE = CMakeFiles\Hurricane.dir\src\particle.cpp.obj.d
   INCLUDES = -I"X:/Side projects/Hurricane/include"
   OBJECT_DIR = CMakeFiles\Hurricane.dir
   OBJECT_FILE_DIR = CMakeFiles\Hurricane.dir\src
 
 build CMakeFiles/Hurricane.dir/src/rendering/scene.cpp.obj: CXX_COMPILER__Hurricane_unscanned_ X$:/Side$ projects/Hurricane/src/rendering/scene.cpp || cmake_object_order_depends_target_Hurricane
+  DEFINES = -DPROJECT_ROOT="\"X:/Side projects/Hurricane\""
   DEP_FILE = CMakeFiles\Hurricane.dir\src\rendering\scene.cpp.obj.d
   INCLUDES = -I"X:/Side projects/Hurricane/include"
   OBJECT_DIR = CMakeFiles\Hurricane.dir
   OBJECT_FILE_DIR = CMakeFiles\Hurricane.dir\src\rendering
 
 build CMakeFiles/Hurricane.dir/src/rendering/scenes/two_boxes.cpp.obj: CXX_COMPILER__Hurricane_unscanned_ X$:/Side$ projects/Hurricane/src/rendering/scenes/two_boxes.cpp || cmake_object_order_depends_target_Hurricane
+  DEFINES = -DPROJECT_ROOT="\"X:/Side projects/Hurricane\""
   DEP_FILE = CMakeFiles\Hurricane.dir\src\rendering\scenes\two_boxes.cpp.obj.d
   INCLUDES = -I"X:/Side projects/Hurricane/include"
   OBJECT_DIR = CMakeFiles\Hurricane.dir
   OBJECT_FILE_DIR = CMakeFiles\Hurricane.dir\src\rendering\scenes
 
 build CMakeFiles/Hurricane.dir/src/rendering/screen.cpp.obj: CXX_COMPILER__Hurricane_unscanned_ X$:/Side$ projects/Hurricane/src/rendering/screen.cpp || cmake_object_order_depends_target_Hurricane
+  DEFINES = -DPROJECT_ROOT="\"X:/Side projects/Hurricane\""
   DEP_FILE = CMakeFiles\Hurricane.dir\src\rendering\screen.cpp.obj.d
   INCLUDES = -I"X:/Side projects/Hurricane/include"
   OBJECT_DIR = CMakeFiles\Hurricane.dir
   OBJECT_FILE_DIR = CMakeFiles\Hurricane.dir\src\rendering
 
 build CMakeFiles/Hurricane.dir/src/shaders/shader.cpp.obj: CXX_COMPILER__Hurricane_unscanned_ X$:/Side$ projects/Hurricane/src/shaders/shader.cpp || cmake_object_order_depends_target_Hurricane
+  DEFINES = -DPROJECT_ROOT="\"X:/Side projects/Hurricane\""
   DEP_FILE = CMakeFiles\Hurricane.dir\src\shaders\shader.cpp.obj.d
   INCLUDES = -I"X:/Side projects/Hurricane/include"
   OBJECT_DIR = CMakeFiles\Hurricane.dir

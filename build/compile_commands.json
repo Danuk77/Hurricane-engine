@@ -1,67 +1,67 @@
 [
 {
   "directory": "X:/Side projects/Hurricane/build",
-  "command": "C:\\msys64\\mingw64\\bin\\c++.exe -I\"X:/Side projects/Hurricane/include\" -o CMakeFiles\\Hurricane.dir\\src\\colliders\\box_collider.cpp.obj -c \"X:\\Side projects\\Hurricane\\src\\colliders\\box_collider.cpp\"",
+  "command": "C:\\msys64\\mingw64\\bin\\c++.exe -DPROJECT_ROOT=\"\\\"X:/Side projects/Hurricane\\\"\" -I\"X:/Side projects/Hurricane/include\" -o CMakeFiles\\Hurricane.dir\\src\\colliders\\box_collider.cpp.obj -c \"X:\\Side projects\\Hurricane\\src\\colliders\\box_collider.cpp\"",
   "file": "X:\\Side projects\\Hurricane\\src\\colliders\\box_collider.cpp",
   "output": "CMakeFiles\\Hurricane.dir\\src\\colliders\\box_collider.cpp.obj"
 },
 {
   "directory": "X:/Side projects/Hurricane/build",
-  "command": "C:\\msys64\\mingw64\\bin\\c++.exe -I\"X:/Side projects/Hurricane/include\" -o CMakeFiles\\Hurricane.dir\\src\\dep\\glad.cpp.obj -c \"X:\\Side projects\\Hurricane\\src\\dep\\glad.cpp\"",
+  "command": "C:\\msys64\\mingw64\\bin\\c++.exe -DPROJECT_ROOT=\"\\\"X:/Side projects/Hurricane\\\"\" -I\"X:/Side projects/Hurricane/include\" -o CMakeFiles\\Hurricane.dir\\src\\dep\\glad.cpp.obj -c \"X:\\Side projects\\Hurricane\\src\\dep\\glad.cpp\"",
   "file": "X:\\Side projects\\Hurricane\\src\\dep\\glad.cpp",
   "output": "CMakeFiles\\Hurricane.dir\\src\\dep\\glad.cpp.obj"
 },
 {
   "directory": "X:/Side projects/Hurricane/build",
-  "command": "C:\\msys64\\mingw64\\bin\\c++.exe -I\"X:/Side projects/Hurricane/include\" -o CMakeFiles\\Hurricane.dir\\src\\file_reader.cpp.obj -c \"X:\\Side projects\\Hurricane\\src\\file_reader.cpp\"",
+  "command": "C:\\msys64\\mingw64\\bin\\c++.exe -DPROJECT_ROOT=\"\\\"X:/Side projects/Hurricane\\\"\" -I\"X:/Side projects/Hurricane/include\" -o CMakeFiles\\Hurricane.dir\\src\\file_reader.cpp.obj -c \"X:\\Side projects\\Hurricane\\src\\file_reader.cpp\"",
   "file": "X:\\Side projects\\Hurricane\\src\\file_reader.cpp",
   "output": "CMakeFiles\\Hurricane.dir\\src\\file_reader.cpp.obj"
 },
 {
   "directory": "X:/Side projects/Hurricane/build",
-  "command": "C:\\msys64\\mingw64\\bin\\c++.exe -I\"X:/Side projects/Hurricane/include\" -o CMakeFiles\\Hurricane.dir\\src\\game_objects\\box.cpp.obj -c \"X:\\Side projects\\Hurricane\\src\\game_objects\\box.cpp\"",
+  "command": "C:\\msys64\\mingw64\\bin\\c++.exe -DPROJECT_ROOT=\"\\\"X:/Side projects/Hurricane\\\"\" -I\"X:/Side projects/Hurricane/include\" -o CMakeFiles\\Hurricane.dir\\src\\game_objects\\box.cpp.obj -c \"X:\\Side projects\\Hurricane\\src\\game_objects\\box.cpp\"",
   "file": "X:\\Side projects\\Hurricane\\src\\game_objects\\box.cpp",
   "output": "CMakeFiles\\Hurricane.dir\\src\\game_objects\\box.cpp.obj"
 },
 {
   "directory": "X:/Side projects/Hurricane/build",
-  "command": "C:\\msys64\\mingw64\\bin\\c++.exe -I\"X:/Side projects/Hurricane/include\" -o CMakeFiles\\Hurricane.dir\\src\\game_objects\\factories\\box_factory.cpp.obj -c \"X:\\Side projects\\Hurricane\\src\\game_objects\\factories\\box_factory.cpp\"",
+  "command": "C:\\msys64\\mingw64\\bin\\c++.exe -DPROJECT_ROOT=\"\\\"X:/Side projects/Hurricane\\\"\" -I\"X:/Side projects/Hurricane/include\" -o CMakeFiles\\Hurricane.dir\\src\\game_objects\\factories\\box_factory.cpp.obj -c \"X:\\Side projects\\Hurricane\\src\\game_objects\\factories\\box_factory.cpp\"",
   "file": "X:\\Side projects\\Hurricane\\src\\game_objects\\factories\\box_factory.cpp",
   "output": "CMakeFiles\\Hurricane.dir\\src\\game_objects\\factories\\box_factory.cpp.obj"
 },
 {
   "directory": "X:/Side projects/Hurricane/build",
-  "command": "C:\\msys64\\mingw64\\bin\\c++.exe -I\"X:/Side projects/Hurricane/include\" -o CMakeFiles\\Hurricane.dir\\src\\main.cpp.obj -c \"X:\\Side projects\\Hurricane\\src\\main.cpp\"",
+  "command": "C:\\msys64\\mingw64\\bin\\c++.exe -DPROJECT_ROOT=\"\\\"X:/Side projects/Hurricane\\\"\" -I\"X:/Side projects/Hurricane/include\" -o CMakeFiles\\Hurricane.dir\\src\\main.cpp.obj -c \"X:\\Side projects\\Hurricane\\src\\main.cpp\"",
   "file": "X:\\Side projects\\Hurricane\\src\\main.cpp",
   "output": "CMakeFiles\\Hurricane.dir\\src\\main.cpp.obj"
 },
 {
   "directory": "X:/Side projects/Hurricane/build",
-  "command": "C:\\msys64\\mingw64\\bin\\c++.exe -I\"X:/Side projects/Hurricane/include\" -o CMakeFiles\\Hurricane.dir\\src\\particle.cpp.obj -c \"X:\\Side projects\\Hurricane\\src\\particle.cpp\"",
+  "command": "C:\\msys64\\mingw64\\bin\\c++.exe -DPROJECT_ROOT=\"\\\"X:/Side projects/Hurricane\\\"\" -I\"X:/Side projects/Hurricane/include\" -o CMakeFiles\\Hurricane.dir\\src\\particle.cpp.obj -c \"X:\\Side projects\\Hurricane\\src\\particle.cpp\"",
   "file": "X:\\Side projects\\Hurricane\\src\\particle.cpp",
   "output": "CMakeFiles\\Hurricane.dir\\src\\particle.cpp.obj"
 },
 {
   "directory": "X:/Side projects/Hurricane/build",
-  "command": "C:\\msys64\\mingw64\\bin\\c++.exe -I\"X:/Side projects/Hurricane/include\" -o CMakeFiles\\Hurricane.dir\\src\\rendering\\scene.cpp.obj -c \"X:\\Side projects\\Hurricane\\src\\rendering\\scene.cpp\"",
+  "command": "C:\\msys64\\mingw64\\bin\\c++.exe -DPROJECT_ROOT=\"\\\"X:/Side projects/Hurricane\\\"\" -I\"X:/Side projects/Hurricane/include\" -o CMakeFiles\\Hurricane.dir\\src\\rendering\\scene.cpp.obj -c \"X:\\Side projects\\Hurricane\\src\\rendering\\scene.cpp\"",
   "file": "X:\\Side projects\\Hurricane\\src\\rendering\\scene.cpp",
   "output": "CMakeFiles\\Hurricane.dir\\src\\rendering\\scene.cpp.obj"
 },
 {
   "directory": "X:/Side projects/Hurricane/build",
-  "command": "C:\\msys64\\mingw64\\bin\\c++.exe -I\"X:/Side projects/Hurricane/include\" -o CMakeFiles\\Hurricane.dir\\src\\rendering\\scenes\\two_boxes.cpp.obj -c \"X:\\Side projects\\Hurricane\\src\\rendering\\scenes\\two_boxes.cpp\"",
+  "command": "C:\\msys64\\mingw64\\bin\\c++.exe -DPROJECT_ROOT=\"\\\"X:/Side projects/Hurricane\\\"\" -I\"X:/Side projects/Hurricane/include\" -o CMakeFiles\\Hurricane.dir\\src\\rendering\\scenes\\two_boxes.cpp.obj -c \"X:\\Side projects\\Hurricane\\src\\rendering\\scenes\\two_boxes.cpp\"",
   "file": "X:\\Side projects\\Hurricane\\src\\rendering\\scenes\\two_boxes.cpp",
   "output": "CMakeFiles\\Hurricane.dir\\src\\rendering\\scenes\\two_boxes.cpp.obj"
 },
 {
   "directory": "X:/Side projects/Hurricane/build",
-  "command": "C:\\msys64\\mingw64\\bin\\c++.exe -I\"X:/Side projects/Hurricane/include\" -o CMakeFiles\\Hurricane.dir\\src\\rendering\\screen.cpp.obj -c \"X:\\Side projects\\Hurricane\\src\\rendering\\screen.cpp\"",
+  "command": "C:\\msys64\\mingw64\\bin\\c++.exe -DPROJECT_ROOT=\"\\\"X:/Side projects/Hurricane\\\"\" -I\"X:/Side projects/Hurricane/include\" -o CMakeFiles\\Hurricane.dir\\src\\rendering\\screen.cpp.obj -c \"X:\\Side projects\\Hurricane\\src\\rendering\\screen.cpp\"",
   "file": "X:\\Side projects\\Hurricane\\src\\rendering\\screen.cpp",
   "output": "CMakeFiles\\Hurricane.dir\\src\\rendering\\screen.cpp.obj"
 },
 {
   "directory": "X:/Side projects/Hurricane/build",
-  "command": "C:\\msys64\\mingw64\\bin\\c++.exe -I\"X:/Side projects/Hurricane/include\" -o CMakeFiles\\Hurricane.dir\\src\\shaders\\shader.cpp.obj -c \"X:\\Side projects\\Hurricane\\src\\shaders\\shader.cpp\"",
+  "command": "C:\\msys64\\mingw64\\bin\\c++.exe -DPROJECT_ROOT=\"\\\"X:/Side projects/Hurricane\\\"\" -I\"X:/Side projects/Hurricane/include\" -o CMakeFiles\\Hurricane.dir\\src\\shaders\\shader.cpp.obj -c \"X:\\Side projects\\Hurricane\\src\\shaders\\shader.cpp\"",
   "file": "X:\\Side projects\\Hurricane\\src\\shaders\\shader.cpp",
   "output": "CMakeFiles\\Hurricane.dir\\src\\shaders\\shader.cpp.obj"
 }
