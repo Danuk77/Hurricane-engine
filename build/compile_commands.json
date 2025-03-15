@@ -4,5 +4,35 @@
   "command": "C:\\msys64\\mingw64\\bin\\c++.exe -I\"X:/Side projects/Hurricane/include\" -o CMakeFiles\\Hurricane.dir\\src\\main.cpp.obj -c \"X:\\Side projects\\Hurricane\\src\\main.cpp\"",
   "file": "X:\\Side projects\\Hurricane\\src\\main.cpp",
   "output": "CMakeFiles\\Hurricane.dir\\src\\main.cpp.obj"
+},
+{
+  "directory": "X:/Side projects/Hurricane/build",
+  "command": "C:\\msys64\\mingw64\\bin\\c++.exe -I\"X:/Side projects/Hurricane/include\" -o CMakeFiles\\Hurricane.dir\\src\\particle.cpp.obj -c \"X:\\Side projects\\Hurricane\\src\\particle.cpp\"",
+  "file": "X:\\Side projects\\Hurricane\\src\\particle.cpp",
+  "output": "CMakeFiles\\Hurricane.dir\\src\\particle.cpp.obj"
+},
+{
+  "directory": "X:/Side projects/Hurricane/build",
+  "command": "C:\\msys64\\mingw64\\bin\\c++.exe -I\"X:/Side projects/Hurricane/include\" -o CMakeFiles\\Hurricane.dir\\src\\shader.cpp.obj -c \"X:\\Side projects\\Hurricane\\src\\shader.cpp\"",
+  "file": "X:\\Side projects\\Hurricane\\src\\shader.cpp",
+  "output": "CMakeFiles\\Hurricane.dir\\src\\shader.cpp.obj"
+},
+{
+  "directory": "X:/Side projects/Hurricane/build",
+  "command": "C:\\msys64\\mingw64\\bin\\c++.exe -I\"X:/Side projects/Hurricane/include\" -o CMakeFiles\\Hurricane.dir\\src\\rendering\\scene.cpp.obj -c \"X:\\Side projects\\Hurricane\\src\\rendering\\scene.cpp\"",
+  "file": "X:\\Side projects\\Hurricane\\src\\rendering\\scene.cpp",
+  "output": "CMakeFiles\\Hurricane.dir\\src\\rendering\\scene.cpp.obj"
+},
+{
+  "directory": "X:/Side projects/Hurricane/build",
+  "command": "C:\\msys64\\mingw64\\bin\\c++.exe -I\"X:/Side projects/Hurricane/include\" -o CMakeFiles\\Hurricane.dir\\src\\rendering\\screen.cpp.obj -c \"X:\\Side projects\\Hurricane\\src\\rendering\\screen.cpp\"",
+  "file": "X:\\Side projects\\Hurricane\\src\\rendering\\screen.cpp",
+  "output": "CMakeFiles\\Hurricane.dir\\src\\rendering\\screen.cpp.obj"
+},
+{
+  "directory": "X:/Side projects/Hurricane/build",
+  "command": "C:\\msys64\\mingw64\\bin\\c++.exe -I\"X:/Side projects/Hurricane/include\" -o CMakeFiles\\Hurricane.dir\\src\\dep\\glad.cpp.obj -c \"X:\\Side projects\\Hurricane\\src\\dep\\glad.cpp\"",
+  "file": "X:\\Side projects\\Hurricane\\src\\dep\\glad.cpp",
+  "output": "CMakeFiles\\Hurricane.dir\\src\\dep\\glad.cpp.obj"
 }
 ]

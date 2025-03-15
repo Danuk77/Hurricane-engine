@@ -1,4 +1,4 @@
-#include "models/particle.hpp"
+#include "particle.hpp"
 #include "glm/ext/vector_float3.hpp"
 #include <cassert>
 #include <stdexcept>

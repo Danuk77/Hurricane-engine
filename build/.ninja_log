@@ -1,3 +1,10 @@
 # ninja log v6
-6	634	7572080297070607	CMakeFiles/Hurricane.dir/src/main.cpp.obj	e95ea5163721e110
-635	2262	7572080303355256	Hurricane.exe	7da203e9d5c5c78a
+5	195	7637497818173520	CMakeFiles/Hurricane.dir/src/main.cpp.obj	e95ea5163721e110
+10	281	7637502857524068	CMakeFiles/Hurricane.dir/src/rendering/screen.cpp.obj	8567bf3e439b377e
+281	896	7637502860237654	Hurricane.exe	f0bf11f168db8d6
+4	377	7637407839336065	CMakeFiles/Hurricane.dir/src/particle.cpp.obj	3e12a4180cc3577
+11	766	7637497818234934	CMakeFiles/Hurricane.dir/src/dep/glad.cpp.obj	7a27d1f41c0bf176
+2	343	7637538582734332	build.ninja	7c16dc0dc2469cd8
+4	73	7637502857463709	CMakeFiles/Hurricane.dir/src/rendering/scene.cpp.obj	331ce64fd3716472
+4	388	7637538610007326	CMakeFiles/Hurricane.dir/src/shader.cpp.obj	134294efe6374670
+389	852	7637538613850081	Hurricane.exe	8dcb060ca65d6de3
