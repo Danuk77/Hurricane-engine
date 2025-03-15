@@ -1,10 +1,21 @@
 # ninja log v6
-5	195	7637497818173520	CMakeFiles/Hurricane.dir/src/main.cpp.obj	e95ea5163721e110
+15	519	7637587518174616	CMakeFiles/Hurricane.dir/src/main.cpp.obj	e95ea5163721e110
 10	281	7637502857524068	CMakeFiles/Hurricane.dir/src/rendering/screen.cpp.obj	8567bf3e439b377e
-281	896	7637502860237654	Hurricane.exe	f0bf11f168db8d6
+466	928	7637575935364289	Hurricane.exe	338baa6cd7d4f796
 4	377	7637407839336065	CMakeFiles/Hurricane.dir/src/particle.cpp.obj	3e12a4180cc3577
 11	766	7637497818234934	CMakeFiles/Hurricane.dir/src/dep/glad.cpp.obj	7a27d1f41c0bf176
-2	343	7637538582734332	build.ninja	7c16dc0dc2469cd8
-4	73	7637502857463709	CMakeFiles/Hurricane.dir/src/rendering/scene.cpp.obj	331ce64fd3716472
+2	343	7637590117713529	build.ninja	7c16dc0dc2469cd8
+19	547	7637587518214899	CMakeFiles/Hurricane.dir/src/rendering/scene.cpp.obj	331ce64fd3716472
 4	388	7637538610007326	CMakeFiles/Hurricane.dir/src/shader.cpp.obj	134294efe6374670
-389	852	7637538613850081	Hurricane.exe	8dcb060ca65d6de3
+5	546	7637587518075385	CMakeFiles/Hurricane.dir/src/game_objects/box.cpp.obj	5c7d9ff526da67f0
+5	73	7637552832984765	CMakeFiles/Hurricane.dir/src/colliders/box_collider.cpp.obj	5439a64d4f3de22d
+24	561	7637587518271494	CMakeFiles/Hurricane.dir/src/rendering/scenes/two_boxes.cpp.obj	44f3faae01b3ba09
+5	385	7637553281942089	CMakeFiles/Hurricane.dir/src/shaders/shader.cpp.obj	45c3ebf789541f1c
+11	529	7637587518133505	CMakeFiles/Hurricane.dir/src/game_objects/factories/box_factory.cpp.obj	12f4b02e6029c2c7
+4	251	7637587696368058	CMakeFiles/Hurricane.dir/src/file_reader.cpp.obj	6d9f25d15f5e9e9a
+11	456	7637590136156501	CMakeFiles/Hurricane.dir/src/game_objects/factories/box_factory.cpp.obj	12f4b02e6029c2c7
+5	486	7637590136096078	CMakeFiles/Hurricane.dir/src/game_objects/box.cpp.obj	5c7d9ff526da67f0
+16	491	7637590136198681	CMakeFiles/Hurricane.dir/src/main.cpp.obj	e95ea5163721e110
+24	502	7637590136289180	CMakeFiles/Hurricane.dir/src/rendering/scenes/two_boxes.cpp.obj	44f3faae01b3ba09
+20	563	7637590136243962	CMakeFiles/Hurricane.dir/src/rendering/scene.cpp.obj	331ce64fd3716472
+563	1060	7637590141676874	Hurricane.exe	e8263f5d90517544
