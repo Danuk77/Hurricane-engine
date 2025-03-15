@@ -1,6 +1,12 @@
 [
 {
   "directory": "X:/Side projects/Hurricane/build",
+  "command": "C:\\msys64\\mingw64\\bin\\c++.exe -DPROJECT_ROOT=\"\\\"X:/Side projects/Hurricane\\\"\" -I\"X:/Side projects/Hurricane/include\" -o CMakeFiles\\Hurricane.dir\\src\\clock.cpp.obj -c \"X:\\Side projects\\Hurricane\\src\\clock.cpp\"",
+  "file": "X:\\Side projects\\Hurricane\\src\\clock.cpp",
+  "output": "CMakeFiles\\Hurricane.dir\\src\\clock.cpp.obj"
+},
+{
+  "directory": "X:/Side projects/Hurricane/build",
   "command": "C:\\msys64\\mingw64\\bin\\c++.exe -DPROJECT_ROOT=\"\\\"X:/Side projects/Hurricane\\\"\" -I\"X:/Side projects/Hurricane/include\" -o CMakeFiles\\Hurricane.dir\\src\\colliders\\box_collider.cpp.obj -c \"X:\\Side projects\\Hurricane\\src\\colliders\\box_collider.cpp\"",
   "file": "X:\\Side projects\\Hurricane\\src\\colliders\\box_collider.cpp",
   "output": "CMakeFiles\\Hurricane.dir\\src\\colliders\\box_collider.cpp.obj"
@@ -28,6 +34,12 @@
   "command": "C:\\msys64\\mingw64\\bin\\c++.exe -DPROJECT_ROOT=\"\\\"X:/Side projects/Hurricane\\\"\" -I\"X:/Side projects/Hurricane/include\" -o CMakeFiles\\Hurricane.dir\\src\\game_objects\\factories\\box_factory.cpp.obj -c \"X:\\Side projects\\Hurricane\\src\\game_objects\\factories\\box_factory.cpp\"",
   "file": "X:\\Side projects\\Hurricane\\src\\game_objects\\factories\\box_factory.cpp",
   "output": "CMakeFiles\\Hurricane.dir\\src\\game_objects\\factories\\box_factory.cpp.obj"
+},
+{
+  "directory": "X:/Side projects/Hurricane/build",
+  "command": "C:\\msys64\\mingw64\\bin\\c++.exe -DPROJECT_ROOT=\"\\\"X:/Side projects/Hurricane\\\"\" -I\"X:/Side projects/Hurricane/include\" -o CMakeFiles\\Hurricane.dir\\src\\input\\input_reader.cpp.obj -c \"X:\\Side projects\\Hurricane\\src\\input\\input_reader.cpp\"",
+  "file": "X:\\Side projects\\Hurricane\\src\\input\\input_reader.cpp",
+  "output": "CMakeFiles\\Hurricane.dir\\src\\input\\input_reader.cpp.obj"
 },
 {
   "directory": "X:/Side projects/Hurricane/build",

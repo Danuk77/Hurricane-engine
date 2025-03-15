@@ -44,6 +44,13 @@ cmake_ninja_workdir = X$:/Side$ projects/Hurricane/build/
 
 build cmake_object_order_depends_target_Hurricane: phony || CMakeFiles/Hurricane.dir
 
+build CMakeFiles/Hurricane.dir/src/clock.cpp.obj: CXX_COMPILER__Hurricane_unscanned_ X$:/Side$ projects/Hurricane/src/clock.cpp || cmake_object_order_depends_target_Hurricane
+  DEFINES = -DPROJECT_ROOT="\"X:/Side projects/Hurricane\""
+  DEP_FILE = CMakeFiles\Hurricane.dir\src\clock.cpp.obj.d
+  INCLUDES = -I"X:/Side projects/Hurricane/include"
+  OBJECT_DIR = CMakeFiles\Hurricane.dir
+  OBJECT_FILE_DIR = CMakeFiles\Hurricane.dir\src
+
 build CMakeFiles/Hurricane.dir/src/colliders/box_collider.cpp.obj: CXX_COMPILER__Hurricane_unscanned_ X$:/Side$ projects/Hurricane/src/colliders/box_collider.cpp || cmake_object_order_depends_target_Hurricane
   DEFINES = -DPROJECT_ROOT="\"X:/Side projects/Hurricane\""
   DEP_FILE = CMakeFiles\Hurricane.dir\src\colliders\box_collider.cpp.obj.d
@@ -78,6 +85,13 @@ build CMakeFiles/Hurricane.dir/src/game_objects/factories/box_factory.cpp.obj: C
   INCLUDES = -I"X:/Side projects/Hurricane/include"
   OBJECT_DIR = CMakeFiles\Hurricane.dir
   OBJECT_FILE_DIR = CMakeFiles\Hurricane.dir\src\game_objects\factories
+
+build CMakeFiles/Hurricane.dir/src/input/input_reader.cpp.obj: CXX_COMPILER__Hurricane_unscanned_ X$:/Side$ projects/Hurricane/src/input/input_reader.cpp || cmake_object_order_depends_target_Hurricane
+  DEFINES = -DPROJECT_ROOT="\"X:/Side projects/Hurricane\""
+  DEP_FILE = CMakeFiles\Hurricane.dir\src\input\input_reader.cpp.obj.d
+  INCLUDES = -I"X:/Side projects/Hurricane/include"
+  OBJECT_DIR = CMakeFiles\Hurricane.dir
+  OBJECT_FILE_DIR = CMakeFiles\Hurricane.dir\src\input
 
 build CMakeFiles/Hurricane.dir/src/main.cpp.obj: CXX_COMPILER__Hurricane_unscanned_ X$:/Side$ projects/Hurricane/src/main.cpp || cmake_object_order_depends_target_Hurricane
   DEFINES = -DPROJECT_ROOT="\"X:/Side projects/Hurricane\""
@@ -129,7 +143,7 @@ build CMakeFiles/Hurricane.dir/src/shaders/shader.cpp.obj: CXX_COMPILER__Hurrica
 #############################################
 # Link the executable Hurricane.exe
 
-build Hurricane.exe: CXX_EXECUTABLE_LINKER__Hurricane_ CMakeFiles/Hurricane.dir/src/colliders/box_collider.cpp.obj CMakeFiles/Hurricane.dir/src/dep/glad.cpp.obj CMakeFiles/Hurricane.dir/src/file_reader.cpp.obj CMakeFiles/Hurricane.dir/src/game_objects/box.cpp.obj CMakeFiles/Hurricane.dir/src/game_objects/factories/box_factory.cpp.obj CMakeFiles/Hurricane.dir/src/main.cpp.obj CMakeFiles/Hurricane.dir/src/particle.cpp.obj CMakeFiles/Hurricane.dir/src/rendering/scene.cpp.obj CMakeFiles/Hurricane.dir/src/rendering/scenes/two_boxes.cpp.obj CMakeFiles/Hurricane.dir/src/rendering/screen.cpp.obj CMakeFiles/Hurricane.dir/src/shaders/shader.cpp.obj | X$:/Side$ projects/Hurricane/lib/libglfw3.a X$:/Side$ projects/Hurricane/lib/libglfw3dll.a
+build Hurricane.exe: CXX_EXECUTABLE_LINKER__Hurricane_ CMakeFiles/Hurricane.dir/src/clock.cpp.obj CMakeFiles/Hurricane.dir/src/colliders/box_collider.cpp.obj CMakeFiles/Hurricane.dir/src/dep/glad.cpp.obj CMakeFiles/Hurricane.dir/src/file_reader.cpp.obj CMakeFiles/Hurricane.dir/src/game_objects/box.cpp.obj CMakeFiles/Hurricane.dir/src/game_objects/factories/box_factory.cpp.obj CMakeFiles/Hurricane.dir/src/input/input_reader.cpp.obj CMakeFiles/Hurricane.dir/src/main.cpp.obj CMakeFiles/Hurricane.dir/src/particle.cpp.obj CMakeFiles/Hurricane.dir/src/rendering/scene.cpp.obj CMakeFiles/Hurricane.dir/src/rendering/scenes/two_boxes.cpp.obj CMakeFiles/Hurricane.dir/src/rendering/screen.cpp.obj CMakeFiles/Hurricane.dir/src/shaders/shader.cpp.obj | X$:/Side$ projects/Hurricane/lib/libglfw3.a X$:/Side$ projects/Hurricane/lib/libglfw3dll.a
   LINK_LIBRARIES = -lopengl32  -lglu32  "X:/Side projects/Hurricane/lib/libglfw3.a"  "X:/Side projects/Hurricane/lib/libglfw3dll.a"  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Hurricane.dir
   POST_BUILD = C:\WINDOWS\system32\cmd.exe /C "cd /D "X:\Side projects\Hurricane\build" && C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -noprofile -executionpolicy Bypass -file X:/vcpkg/scripts/buildsystems/msbuild/applocal.ps1 -targetBinary "X:/Side projects/Hurricane/build/Hurricane.exe" -installedDir X:/vcpkg/installed/x64-windows/bin -OutVariable out"
