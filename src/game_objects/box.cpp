@@ -5,6 +5,7 @@
 #include "glm/ext/matrix_clip_space.hpp"
 #include "glm/ext/matrix_transform.hpp"
 #include "shaders/shader.hpp"
+#include "clock.hpp"
 
 unsigned int Box::vertex_array_object = 0;
 unsigned int Box::vertex_buffer_object = 0;
@@ -31,9 +32,12 @@ void Box::set_vertex_data() {
   if (Box::vertex_array_object == 0) {
     float vertices[] = {
         // pos      // tex
-        0.0f, 1.0f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f,
-
-        0.0f, 1.0f, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f, 1.0f, 0.0f};
+        0.0f, 1.0f, 0.0f, 1.0f, 
+        1.0f, 0.0f, 1.0f, 0.0f, 
+        0.0f, 0.0f, 0.0f, 0.0f,
+        0.0f, 1.0f, 0.0f, 1.0f, 
+        1.0f, 1.0f, 1.0f, 1.0f, 
+        1.0f, 0.0f, 1.0f, 0.0f};
 
     glGenVertexArrays(1, &Box::vertex_array_object);
     glGenBuffers(1, &Box::vertex_buffer_object);
@@ -81,4 +85,47 @@ void Box::render() {
   glBindVertexArray(Box::vertex_array_object);
   glDrawArrays(GL_TRIANGLES, 0, 6);
   glBindVertexArray(0);
+}
+
+void Box::handle_user_input(std::vector<Input> user_input){
+  std::vector<Input>::iterator user_input_iterator;
+
+  for (user_input_iterator = user_input.begin(); user_input_iterator != user_input.end(); user_input_iterator++){
+    move(*user_input_iterator);
+  }
+}
+
+void Box::move(Input direction){
+  switch (direction) {
+    case LEFT:
+      move_left();
+      break;
+    case RIGHT:
+      move_right();
+      break;
+    case UP:
+      move_up();
+      break;
+    case DOWN:
+      move_down();
+      break;
+  }
+
+  initialise_model_matrix();
+}
+
+void Box::move_left(){
+  transform.position.x -= (movement_velocity * Clock::get_time_since_last_frame());
+}
+
+void Box::move_right(){
+  transform.position.x += (movement_velocity * Clock::get_time_since_last_frame());
+}
+
+void Box::move_up(){
+  transform.position.y -= (movement_velocity * Clock::get_time_since_last_frame());
+}
+  
+void Box::move_down(){
+  transform.position.y += (movement_velocity * Clock::get_time_since_last_frame());
 }

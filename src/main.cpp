@@ -1,12 +1,17 @@
+#include "rendering/scene.hpp"
 #include "rendering/scenes/two_boxes.hpp"
 #include <glad/glad.h>
+#include <memory>
 #define GLFW_USE_WIN32
 #include <GLFW/glfw3.h>
 #include <glm/common.hpp>
 #include "rendering/screen.hpp"
+#include "clock.hpp"
+#include "input/input_reader.hpp"
 
 void game_loop();
 void clear_screen();
+void handle_user_input(Scene &scene, GLFWwindow *window, InputReader &reader);
 
 int main(){
   game_loop();
@@ -15,10 +20,14 @@ int main(){
 
 void game_loop(){
   GLFWwindow *window = create_window();
+  InputReader reader;
   TwoBoxes scene;
 
   while(!glfwWindowShouldClose(window)){
     scene.render();
+    Clock::update_time();
+
+    handle_user_input(scene, window, reader);
 
     glfwSwapBuffers(window);
     clear_screen();
@@ -31,3 +40,10 @@ void clear_screen(){
   glClear(GL_COLOR_BUFFER_BIT);
 }
 
+void handle_user_input(Scene &scene, GLFWwindow *window, InputReader &reader){
+  std::vector<Input> current_frame_inputs = reader.read_user_input(window);
+  std:std::unique_ptr<Box> movable_box;
+  if(scene.game_objects.size() > 0){
+    (*scene.game_objects.at(0)).handle_user_input(current_frame_inputs);
+  }
+}
