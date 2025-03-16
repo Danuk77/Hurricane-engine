@@ -11,6 +11,6 @@ repos:
     hooks:
       - id: cpplint
         args:
-          - --filter=-whitespace/line_length,-whitespace/parens, -legal/copyright
+          - --filter=-whitespace/parens, -legal/copyright
 
 
