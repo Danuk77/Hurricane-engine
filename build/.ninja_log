@@ -35,3 +35,6 @@
 26	553	7637714972263584	CMakeFiles/Hurricane.dir/src/rendering/scenes/two_boxes.cpp.obj	2e369501fb350774
 6	665	7637714972066154	CMakeFiles/Hurricane.dir/src/game_objects/box.cpp.obj	127e318eff7388dc
 665	1172	7637714978656835	Hurricane.exe	72377c6ee476f031
+12	482	7637732917353984	CMakeFiles/Hurricane.dir/src/main.cpp.obj	fe7abc28811b675
+6	567	7637732917292513	CMakeFiles/Hurricane.dir/src/game_objects/box.cpp.obj	127e318eff7388dc
+568	1094	7637732922910543	Hurricane.exe	72377c6ee476f031
