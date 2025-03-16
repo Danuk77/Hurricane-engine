@@ -76,5 +76,35 @@
   "command": "C:\\msys64\\mingw64\\bin\\c++.exe -DPROJECT_ROOT=\"\\\"X:/Side projects/Hurricane\\\"\" -I\"X:/Side projects/Hurricane/include\" -o CMakeFiles\\Hurricane.dir\\src\\shaders\\shader.cpp.obj -c \"X:\\Side projects\\Hurricane\\src\\shaders\\shader.cpp\"",
   "file": "X:\\Side projects\\Hurricane\\src\\shaders\\shader.cpp",
   "output": "CMakeFiles\\Hurricane.dir\\src\\shaders\\shader.cpp.obj"
+},
+{
+  "directory": "X:/Side projects/Hurricane/build",
+  "command": "C:\\msys64\\mingw64\\bin\\c++.exe -DPROJECT_ROOT=\"\\\"X:/Side projects/Hurricane\\\"\" -isystem \"X:/Side projects/Hurricane/build/_deps/googletest-src/googletest/include\" -isystem \"X:/Side projects/Hurricane/build/_deps/googletest-src/googletest\" -o CMakeFiles\\run_test.dir\\tests\\test.cpp.obj -c \"X:\\Side projects\\Hurricane\\tests\\test.cpp\"",
+  "file": "X:\\Side projects\\Hurricane\\tests\\test.cpp",
+  "output": "CMakeFiles\\run_test.dir\\tests\\test.cpp.obj"
+},
+{
+  "directory": "X:/Side projects/Hurricane/build",
+  "command": "C:\\msys64\\mingw64\\bin\\c++.exe -DPROJECT_ROOT=\"\\\"X:/Side projects/Hurricane\\\"\" -I\"X:/Side projects/Hurricane/build/_deps/googletest-src/googlemock/include\" -I\"X:/Side projects/Hurricane/build/_deps/googletest-src/googlemock\" -isystem \"X:/Side projects/Hurricane/build/_deps/googletest-src/googletest/include\" -isystem \"X:/Side projects/Hurricane/build/_deps/googletest-src/googletest\" -Wall -Wshadow -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=0 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -o _deps\\googletest-build\\googlemock\\CMakeFiles\\gmock.dir\\src\\gmock-all.cc.obj -c \"X:\\Side projects\\Hurricane\\build\\_deps\\googletest-src\\googlemock\\src\\gmock-all.cc\"",
+  "file": "X:\\Side projects\\Hurricane\\build\\_deps\\googletest-src\\googlemock\\src\\gmock-all.cc",
+  "output": "_deps\\googletest-build\\googlemock\\CMakeFiles\\gmock.dir\\src\\gmock-all.cc.obj"
+},
+{
+  "directory": "X:/Side projects/Hurricane/build",
+  "command": "C:\\msys64\\mingw64\\bin\\c++.exe -DPROJECT_ROOT=\"\\\"X:/Side projects/Hurricane\\\"\" -isystem \"X:/Side projects/Hurricane/build/_deps/googletest-src/googlemock/include\" -isystem \"X:/Side projects/Hurricane/build/_deps/googletest-src/googlemock\" -isystem \"X:/Side projects/Hurricane/build/_deps/googletest-src/googletest/include\" -isystem \"X:/Side projects/Hurricane/build/_deps/googletest-src/googletest\" -Wall -Wshadow -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=0 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -o _deps\\googletest-build\\googlemock\\CMakeFiles\\gmock_main.dir\\src\\gmock_main.cc.obj -c \"X:\\Side projects\\Hurricane\\build\\_deps\\googletest-src\\googlemock\\src\\gmock_main.cc\"",
+  "file": "X:\\Side projects\\Hurricane\\build\\_deps\\googletest-src\\googlemock\\src\\gmock_main.cc",
+  "output": "_deps\\googletest-build\\googlemock\\CMakeFiles\\gmock_main.dir\\src\\gmock_main.cc.obj"
+},
+{
+  "directory": "X:/Side projects/Hurricane/build",
+  "command": "C:\\msys64\\mingw64\\bin\\c++.exe -DPROJECT_ROOT=\"\\\"X:/Side projects/Hurricane\\\"\" -I\"X:/Side projects/Hurricane/build/_deps/googletest-src/googletest/include\" -I\"X:/Side projects/Hurricane/build/_deps/googletest-src/googletest\" -Wall -Wshadow -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=0 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -o _deps\\googletest-build\\googletest\\CMakeFiles\\gtest.dir\\src\\gtest-all.cc.obj -c \"X:\\Side projects\\Hurricane\\build\\_deps\\googletest-src\\googletest\\src\\gtest-all.cc\"",
+  "file": "X:\\Side projects\\Hurricane\\build\\_deps\\googletest-src\\googletest\\src\\gtest-all.cc",
+  "output": "_deps\\googletest-build\\googletest\\CMakeFiles\\gtest.dir\\src\\gtest-all.cc.obj"
+},
+{
+  "directory": "X:/Side projects/Hurricane/build",
+  "command": "C:\\msys64\\mingw64\\bin\\c++.exe -DPROJECT_ROOT=\"\\\"X:/Side projects/Hurricane\\\"\" -isystem \"X:/Side projects/Hurricane/build/_deps/googletest-src/googletest/include\" -isystem \"X:/Side projects/Hurricane/build/_deps/googletest-src/googletest\" -Wall -Wshadow -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=0 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -o _deps\\googletest-build\\googletest\\CMakeFiles\\gtest_main.dir\\src\\gtest_main.cc.obj -c \"X:\\Side projects\\Hurricane\\build\\_deps\\googletest-src\\googletest\\src\\gtest_main.cc\"",
+  "file": "X:\\Side projects\\Hurricane\\build\\_deps\\googletest-src\\googletest\\src\\gtest_main.cc",
+  "output": "_deps\\googletest-build\\googletest\\CMakeFiles\\gtest_main.dir\\src\\gtest_main.cc.obj"
 }
 ]

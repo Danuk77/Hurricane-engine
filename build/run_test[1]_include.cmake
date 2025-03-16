@@ -1,0 +1,5 @@
+if(EXISTS "X:/Side projects/Hurricane/build/run_test[1]_tests.cmake")
+  include("X:/Side projects/Hurricane/build/run_test[1]_tests.cmake")
+else()
+  add_test(run_test_NOT_BUILT run_test_NOT_BUILT)
+endif()
