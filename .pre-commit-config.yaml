@@ -4,6 +4,12 @@ repos:
     rev: v15.0.7
     hooks:
       - id: clang-format
+        args:
+          - --exclude=include/KHR/* 
+          - --exclude=include/glad/*
+          - --exclude=include/glm/*
+          - --exclude=include/GLFW/*
+          - --exclude=src/dep/*
 
   # Linting
   - repo: https://github.com/cpplint/cpplint
@@ -11,7 +17,9 @@ repos:
     hooks:
       - id: cpplint
         args:
-          - --filter=-whitespace/parens, -legal/copyright
-          - --exclude=include/KHR/*, include/glad/*, include/glm/*, include/GLFW/*, src/dep/*
-
-
+          - --filter=-whitespace/parens,-legal/copyright
+          - --exclude=include/KHR/* 
+          - --exclude=include/glad/*
+          - --exclude=include/glm/*
+          - --exclude=include/GLFW/*
+          - --exclude=src/dep/*
