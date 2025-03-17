@@ -12,5 +12,6 @@ repos:
       - id: cpplint
         args:
           - --filter=-whitespace/parens, -legal/copyright
+          - --exclude=include/KHR/*, include/glad/*, include/glm/*, include/GLFW/*, src/dep/*
 
 
