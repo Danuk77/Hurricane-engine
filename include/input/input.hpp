@@ -1,7 +1,2 @@
 #pragma once
-enum Input{
-  LEFT,
-  RIGHT,
-  UP,
-  DOWN
-};
+enum Input { LEFT, RIGHT, UP, DOWN };

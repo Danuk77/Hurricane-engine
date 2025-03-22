@@ -7,7 +7,8 @@ void ElasticBungeeGenerator::generate_force(Particle *particle,
   float elasticity_maginitude = elastic_vector.length();
 
   float elastict_distance = elasticity_maginitude - rest_length;
-  if (elastict_distance <= 0) return;
+  if (elastict_distance <= 0)
+    return;
 
   glm::vec3 elasticity_direction = glm::normalize(elastic_vector);
 

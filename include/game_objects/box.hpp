@@ -1,13 +1,15 @@
-#pragma  once
+#pragma once
 #include <string>
-#include "shaders/shader.hpp"
-#include "transform.hpp"
-#include "input/input.hpp"
+#include <utility>
 #include <vector>
+
+#include "./transform.hpp"
+#include "input/input.hpp"
+#include "shaders/shader.hpp"
 
 Shader load_shaders();
 
-class Box{
+class Box {
 public:
   std::string box_name;
   Box(std::string box_name, Transform Transform);
