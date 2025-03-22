@@ -1,7 +1,8 @@
-#include "particle.hpp"
-#include "glm/ext/vector_float3.hpp"
 #include <cassert>
 #include <stdexcept>
+
+#include "./particle.hpp"
+#include "glm/ext/vector_float3.hpp"
 
 Particle::Particle(glm::vec3 position, glm::vec3 velocity,
                    glm::vec3 acceleration, float damping_factor, float mass)
@@ -13,7 +14,7 @@ Particle::Particle(glm::vec3 position, glm::vec3 velocity,
   }
 
   inverse_mass = 1 / mass;
-};
+}
 
 void Particle::integrate(float time_duration) {
   assert(time_duration > 0);
@@ -26,14 +27,8 @@ void Particle::integrate(float time_duration) {
   clear_accumulated_force();
 }
 
-void Particle::add_force(glm::vec3 force){
-  force_accumulated += force;
-}
+void Particle::add_force(glm::vec3 force) { force_accumulated += force; }
 
-void Particle::clear_accumulated_force(){
-  force_accumulated = glm::vec3(0);
-}
+void Particle::clear_accumulated_force() { force_accumulated = glm::vec3(0); }
 
-bool Particle::has_inifinite_mass(){
-  return inverse_mass == 0;
-}
+bool Particle::has_inifinite_mass() { return inverse_mass == 0; }

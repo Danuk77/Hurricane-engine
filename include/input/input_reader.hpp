@@ -1,11 +1,13 @@
 #pragma once
-#include "input/input.hpp"
-#include "GLFW/glfw3.h"
 #include <vector>
 
-class InputReader{
+#include "GLFW/glfw3.h"
+#include "input/input.hpp"
+
+class InputReader {
 public:
-  InputReader(){};
+  InputReader() {}
   std::vector<Input> read_user_input(GLFWwindow *window);
+
 private:
 };

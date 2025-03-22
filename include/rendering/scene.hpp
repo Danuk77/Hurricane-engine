@@ -1,11 +1,13 @@
 #pragma once
-#include "game_objects/box.hpp"
+
 #include <memory>
 #include <vector>
 
-class Scene{
+#include "game_objects/box.hpp"
+
+class Scene {
 public:
-  Scene(){};
+  Scene() {}
   void render();
   void add_box(std::unique_ptr<Box>);
   std::vector<std::unique_ptr<Box>> game_objects;

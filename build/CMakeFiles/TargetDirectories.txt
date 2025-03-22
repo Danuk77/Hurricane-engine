@@ -1,3 +1,0 @@
-X:/Side projects/Hurricane/build/CMakeFiles/Hurricane.dir
-X:/Side projects/Hurricane/build/CMakeFiles/edit_cache.dir
-X:/Side projects/Hurricane/build/CMakeFiles/rebuild_cache.dir

@@ -13,7 +13,8 @@ void ForceGeneratorRegistry::deregister_generator(
   std::vector<ParticleForceGeneratorRegistration>::iterator iterator;
 
   for (iterator = registry.begin(); iterator != registry.end(); iterator++) {
-    if (iterator->particle == particle && iterator->force_generator == force_generator) {
+    if (iterator->particle == particle &&
+        iterator->force_generator == force_generator) {
       registry.erase(iterator);
       return;
     }
@@ -22,11 +23,9 @@ void ForceGeneratorRegistry::deregister_generator(
   throw std::runtime_error("Given registration for force generator not found");
 }
 
-void ForceGeneratorRegistry::clear_registrations(){
-  registry.clear();
-}
+void ForceGeneratorRegistry::clear_registrations() { registry.clear(); }
 
-void ForceGeneratorRegistry::apply_forces(float duration){
+void ForceGeneratorRegistry::apply_forces(float duration) {
   std::vector<ParticleForceGeneratorRegistration>::iterator iterator;
 
   for (iterator = registry.begin(); iterator != registry.end(); iterator++) {
