@@ -21,7 +21,7 @@ repos:
         args:
           # NOTE: The whitespace/indent is added because the formatter will indent
           # correctly and the linter typically disagrees with the formatter on this
-          - --filter=-whitespace/parens,-legal/copyright, -whitespace/indent
+          - --filter=-whitespace/parens,-legal/copyright, -whitespace/indent, -whitespace/comments, -readability/todo
           - --exclude=include/KHR/* 
           - --exclude=include/glad/*
           - --exclude=include/glm/*

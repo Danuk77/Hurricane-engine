@@ -1,10 +1,13 @@
 #pragma once
+#include <algorithm>
+#include <memory>
 #include <string>
 #include <utility>
 #include <vector>
 
 #include "./transform.hpp"
 #include "input/input.hpp"
+#include "physics/colliders/box_collider.hpp"
 #include "shaders/shader.hpp"
 
 Shader load_shaders();
@@ -12,14 +15,18 @@ Shader load_shaders();
 class Box {
 public:
   std::string box_name;
-  Box(std::string box_name, Transform Transform);
+  Box(std::string box_name, Transform Transform,
+      std::unique_ptr<BoxCollider> collider);
 
   void render();
   void handle_user_input(std::vector<Input> user_input);
 
+  BoxCollider &get_collider();
+
 private:
   // Game object specific fields
   Transform transform;
+  std::unique_ptr<BoxCollider> collider;
   Shader shader_program;
   float movement_velocity = 100.0f;
 

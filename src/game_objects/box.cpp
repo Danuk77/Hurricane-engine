@@ -1,9 +1,11 @@
 #include <algorithm>
+#include <memory>
 #include <string>
 #include <utility>
 #include <vector>
 
 #include "glad/glad.h"
+#include "physics/colliders/box_collider.hpp"
 
 #include <glm/ext/matrix_clip_space.hpp>
 #include <glm/ext/matrix_transform.hpp>
@@ -18,20 +20,12 @@ unsigned int Box::vertex_buffer_object = 0;
 glm::mat4 Box::projection_matrix =
     glm::ortho(0.0f, 800.0f, 600.0f, 0.0f, -1.0f, 1.0f);
 
-Box::Box(std::string box_name, Transform transform) : transform(transform) {
+Box::Box(std::string box_name, Transform transform,
+         std::unique_ptr<BoxCollider> collider)
+    : transform(transform), collider(std::move(collider)) {
   set_vertex_data();
   initialise_model_matrix();
   load_shaders();
-}
-
-void Box::load_shaders() {
-  std::string shader_root_path =
-      std::string(PROJECT_ROOT) + "/src/shaders/programs/";
-  std::string vertex_shader =
-      read_shader_file((shader_root_path + "/vertex_shader.glsl").c_str());
-  std::string fragment_shader =
-      read_shader_file((shader_root_path + "/fragment_shader.glsl").c_str());
-  shader_program = Shader(vertex_shader.c_str(), fragment_shader.c_str());
 }
 
 void Box::set_vertex_data() {
@@ -40,10 +34,17 @@ void Box::set_vertex_data() {
   // This is because all our 2D elements will be using the same
   // vertex_buffer_object and vertex_array_object
   if (Box::vertex_array_object == 0) {
-    float vertices[] = {// pos      // tex
-                        0.0f, 1.0f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f, 0.0f,
-                        0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f,
-                        1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f, 1.0f, 0.0f};
+    float vertices[] = {
+        // clang-format off
+      // pos      // tex
+      0.0f, 1.0f, 0.0f, 1.0f,
+      1.0f, 0.0f, 1.0f, 0.0f,
+      0.0f, 0.0f, 0.0f, 0.0f,
+      0.0f, 1.0f, 0.0f, 1.0f,
+      1.0f, 1.0f, 1.0f, 1.0f,
+      1.0f, 0.0f, 1.0f, 0.0f
+        // clang-format on
+    };
 
     glGenVertexArrays(1, &Box::vertex_array_object);
     glGenBuffers(1, &Box::vertex_buffer_object);
@@ -80,6 +81,18 @@ void Box::initialise_model_matrix() {
 
   model_matrix = glm::scale(model_matrix, glm::vec3(transform.size, 1.0f));
 }
+
+void Box::load_shaders() {
+  std::string shader_root_path =
+      std::string(PROJECT_ROOT) + "/src/shaders/programs/";
+  std::string vertex_shader =
+      read_shader_file((shader_root_path + "/vertex_shader.glsl").c_str());
+  std::string fragment_shader =
+      read_shader_file((shader_root_path + "/fragment_shader.glsl").c_str());
+  shader_program = Shader(vertex_shader.c_str(), fragment_shader.c_str());
+}
+
+BoxCollider &Box::get_collider() { return *collider; }
 
 void Box::render() {
   glm::vec3 sprite_color = glm::vec3(0.0f, 1.0f, 0.0f);

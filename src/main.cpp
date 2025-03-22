@@ -10,6 +10,7 @@
 
 #include "./clock.hpp"
 #include "input/input_reader.hpp"
+#include "physics/physics.hpp"
 #include "rendering/scene.hpp"
 #include "rendering/scenes/two_boxes.hpp"
 #include "rendering/screen.hpp"
@@ -34,6 +35,7 @@ void game_loop() {
     Clock::update_time();
 
     handle_user_input(scene, window, &reader);
+    run_physics_loop(&scene);
 
     glfwSwapBuffers(window);
     clear_screen();
