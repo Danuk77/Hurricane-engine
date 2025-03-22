@@ -3,7 +3,7 @@
 
 bool collision_detection::is_colliding(const BoxCollider *collider_one,
                                        const BoxCollider *collider_two) {
-  return false;
+  return true;
 }
 
 glm::vec2 collision_detection::calculate_collision_depth(

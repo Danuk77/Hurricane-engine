@@ -20,9 +20,9 @@ unsigned int Box::vertex_buffer_object = 0;
 glm::mat4 Box::projection_matrix =
     glm::ortho(0.0f, 800.0f, 600.0f, 0.0f, -1.0f, 1.0f);
 
-Box::Box(std::string box_name, Transform transform,
+Box::Box(std::string box_name, std::shared_ptr<Transform> transform,
          std::unique_ptr<BoxCollider> collider)
-    : transform(transform), collider(std::move(collider)) {
+    : transform(std::move(transform)), collider(std::move(collider)) {
   set_vertex_data();
   initialise_model_matrix();
   load_shaders();
@@ -65,21 +65,21 @@ void Box::set_vertex_data() {
 void Box::initialise_model_matrix() {
   model_matrix = glm::mat4(1.0f);
   model_matrix =
-      glm::translate(model_matrix, glm::vec3(transform.position, 0.0f));
+      glm::translate(model_matrix, glm::vec3(transform->position, 0.0f));
 
   // Rotations revolve around the (0,0) point of the model (which is the top
   // left) We need to rotate it around the model's center, therefore move it
   // half its size to the left, rotate and move back
   model_matrix =
-      glm::translate(model_matrix, glm::vec3(0.5f * transform.size.x,
-                                             0.5f * transform.size.y, 0.0f));
+      glm::translate(model_matrix, glm::vec3(0.5f * transform->size.x,
+                                             0.5f * transform->size.y, 0.0f));
   model_matrix = glm::rotate(model_matrix, glm::radians(0.0f),
                              glm::vec3(0.0f, 0.0f, 1.0f));
   model_matrix =
-      glm::translate(model_matrix, glm::vec3(-0.5f * transform.size.x,
-                                             -0.5f * transform.size.y, 0.0f));
+      glm::translate(model_matrix, glm::vec3(-0.5f * transform->size.x,
+                                             -0.5f * transform->size.y, 0.0f));
 
-  model_matrix = glm::scale(model_matrix, glm::vec3(transform.size, 1.0f));
+  model_matrix = glm::scale(model_matrix, glm::vec3(transform->size, 1.0f));
 }
 
 void Box::load_shaders() {
@@ -137,21 +137,21 @@ void Box::move(Input direction) {
 }
 
 void Box::move_left() {
-  transform.position.x -=
+  transform->position.x -=
       (movement_velocity * Clock::get_time_since_last_frame());
 }
 
 void Box::move_right() {
-  transform.position.x +=
+  transform->position.x +=
       (movement_velocity * Clock::get_time_since_last_frame());
 }
 
 void Box::move_up() {
-  transform.position.y -=
+  transform->position.y -=
       (movement_velocity * Clock::get_time_since_last_frame());
 }
 
 void Box::move_down() {
-  transform.position.y +=
+  transform->position.y +=
       (movement_velocity * Clock::get_time_since_last_frame());
 }

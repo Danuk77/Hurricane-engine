@@ -15,7 +15,7 @@ Shader load_shaders();
 class Box {
 public:
   std::string box_name;
-  Box(std::string box_name, Transform Transform,
+  Box(std::string box_name, std::shared_ptr<Transform> Transform,
       std::unique_ptr<BoxCollider> collider);
 
   void render();
@@ -25,7 +25,7 @@ public:
 
 private:
   // Game object specific fields
-  Transform transform;
+  std::shared_ptr<Transform> transform;
   std::unique_ptr<BoxCollider> collider;
   Shader shader_program;
   float movement_velocity = 100.0f;
