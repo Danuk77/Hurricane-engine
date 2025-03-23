@@ -1,5 +1,6 @@
 #include <iostream>
 
+#include "glm/ext/quaternion_geometric.hpp"
 #include "glm/ext/vector_float2.hpp"
 #include "physics/collision_detection/detectors/box_box_detector.hpp"
 
@@ -33,12 +34,13 @@ bool collision_detection::is_colliding(const BoxCollider *collider_one,
   return is_colliding_vertically && is_colliding_horizontally;
 }
 
-glm::vec2 collision_detection::calculate_collision_depth(
-    const BoxCollider *collider_one, const BoxCollider *collider_two) {
-  return glm::vec2(0.0f);
-}
-
 glm::vec2 collision_detection::calculate_collision_normal(
     const BoxCollider *collider_one, const BoxCollider *collider_two) {
-  return glm::vec2(0.0f);
+  return glm::normalize(collider_two->transform->position -
+                        collider_one->transform->position);
+}
+
+glm::vec2 collision_detection::calculate_collision_depth(
+    const BoxCollider *collider_one, const BoxCollider *collider_two) {
+  return glm::vec2(0);
 }

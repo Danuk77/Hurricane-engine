@@ -6,6 +6,7 @@
 #include <memory>
 #include <tuple>
 
+#include "glm/exponential.hpp"
 #include "glm/fwd.hpp"
 #include "physics/colliders/box_collider.hpp"
 #include "physics/colliders/factories/box_collider_factory.hpp"
@@ -51,6 +52,7 @@ INSTANTIATE_TEST_CASE_P(
         // TEST 3
         std::make_tuple(make_test_collider(glm::vec2(0, 0), 10, 10),
                         make_test_collider(glm::vec2(-10, -10), 50, 50), true),
+        // TEST 4
         std::make_tuple(make_test_collider(glm::vec2(0, 0), 10, 10),
                         make_test_collider(glm::vec2(0, 50), 20, 20), false)));
 
@@ -60,40 +62,32 @@ INSTANTIATE_TEST_CASE_P(
 // #########################################################
 // #########################################################
 
-// class CollisionNormalCalculation
-//     : public ::testing::TestWithParam<
-//           std::tuple<std::shared_ptr<BoxCollider>,
-//           std::shared_ptr<BoxCollider>,
-//                      glm::vec2>> {};
-//
-// TEST_P(CollisionNormalCalculation, TEST_CALCULATING_COLLISION_NORMAL) {
-//   std::shared_ptr<BoxCollider> collider_one = std::get<0>(GetParam());
-//   std::shared_ptr<BoxCollider> collider_two = std::get<1>(GetParam());
-//
-//   glm::vec2 expected_collision_normal = std::get<2>(GetParam());
-//   glm::vec2 collision_normal =
-//   collision_detection::calculate_collision_normal(
-//       collider_one.get(), collider_two.get());
-//
-//   ASSERT_EQ(collision_normal, expected_collision_normal);
-// }
-//
-//
-// INSTANTIATE_TEST_CASE_P(
-//     CollisionTests, CollisionNormalCalculation,
-//     ::testing::Values(
-//         // TEST 1
-//         std::make_tuple(std::shared_ptr<BoxCollider>(make_test_collider(glm::vec2(10,
-//         10), 100, 100)),
-//                         std::shared_ptr<BoxCollider>(make_test_collider(glm::vec2(50,
-//                         100), 100, 100)), true),
-//         // TEST 2
-//         std::make_tuple(std::shared_ptr<BoxCollider>(create_box_collider(
-//                             30, 30,
-//                             std::make_shared<Transform>(glm::vec2(10, 0),
-//                                                         glm::vec2(30, 30)))),
-//                         std::shared_ptr<BoxCollider>(create_box_collider(
-//                             30, 30,
-//                             std::make_shared<Transform>(glm::vec2(80, 20),
-//                                                         glm::vec2(30, 30)))),
-//                         false)));
+class CollisionNormalCalculation
+    : public ::testing::TestWithParam<
+          std::tuple<std::shared_ptr<BoxCollider>, std::shared_ptr<BoxCollider>,
+                     glm::vec2>> {};
+
+TEST_P(CollisionNormalCalculation, TEST_CALCULATING_COLLISION_NORMAL) {
+  std::shared_ptr<BoxCollider> collider_one = std::get<0>(GetParam());
+  std::shared_ptr<BoxCollider> collider_two = std::get<1>(GetParam());
+
+  glm::vec2 expected_collision_normal = std::get<2>(GetParam());
+  glm::vec2 collision_normal = collision_detection::calculate_collision_normal(
+      collider_one.get(), collider_two.get());
+
+  ASSERT_FLOAT_EQ(collision_normal.x, expected_collision_normal.x);
+  ASSERT_FLOAT_EQ(collision_normal.y, expected_collision_normal.y);
+}
+
+INSTANTIATE_TEST_CASE_P(
+    CollisionTests, CollisionNormalCalculation,
+    ::testing::Values(
+        // TEST 1
+        std::make_tuple(make_test_collider(glm::vec2(10, 10), 100, 100),
+                        make_test_collider(glm::vec2(23, 10), 100, 100),
+                        glm::vec2(1, 0)),
+        // TEST 2
+        std::make_tuple(make_test_collider(glm::vec2(32, 15), 30, 30),
+                        make_test_collider(glm::vec2(8, -5), 30, 30),
+                        glm::vec2(-24 / glm::sqrt(976),
+                                  -20 / glm::sqrt(976)))));
