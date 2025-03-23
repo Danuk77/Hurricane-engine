@@ -11,11 +11,10 @@ evaluate_possible_collision(const BoxCollider &collider_one,
   if (!is_colliding(&collider_one, &collider_two)) {
     return std::nullopt;
   }
-
-  glm::vec2 collision_depth =
-      calculate_collision_depth(&collider_one, &collider_two);
   glm::vec2 collision_normal =
       calculate_collision_normal(&collider_one, &collider_two);
+  float collision_depth =
+      calculate_collision_depth(&collider_one, &collider_two, collision_normal);
   return Collision(collision_depth, collision_normal);
 }
 } // namespace collision_detection

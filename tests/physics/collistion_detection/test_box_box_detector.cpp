@@ -89,5 +89,37 @@ INSTANTIATE_TEST_CASE_P(
         // TEST 2
         std::make_tuple(make_test_collider(glm::vec2(32, 15), 30, 30),
                         make_test_collider(glm::vec2(8, -5), 30, 30),
-                        glm::vec2(-24 / glm::sqrt(976),
-                                  -20 / glm::sqrt(976)))));
+                        glm::vec2(-24 / glm::sqrt(976), -20 / glm::sqrt(976))),
+        // TEST 3
+        std::make_tuple(make_test_collider(glm::vec2(5, 5), 5, 5),
+                        make_test_collider(glm::vec2(10, 10), 5, 3),
+                        glm::vec2(5 / glm::sqrt(2 * glm::pow(5, 2))))));
+
+// #########################################################
+// #########################################################
+// ########## TESTING CALCULATING COLLISION DEPTH  #########
+// #########################################################
+// #########################################################
+class CollisionDepthCalculation
+    : public ::testing::TestWithParam<
+          std::tuple<std::shared_ptr<BoxCollider>, std::shared_ptr<BoxCollider>,
+                     glm::vec2, float>> {};
+
+TEST_P(CollisionDepthCalculation, TEST_CALCULATING_COLLISION_DEPTH) {
+  std::shared_ptr<BoxCollider> collider_one = std::get<0>(GetParam());
+  std::shared_ptr<BoxCollider> collider_two = std::get<1>(GetParam());
+  glm::vec2 collision_normal = std::get<2>(GetParam());
+  float expected_collision_depth = std::get<3>(GetParam());
+
+  float collision_depth = collision_detection::calculate_collision_depth(
+      collider_one.get(), collider_two.get(), collision_normal);
+
+  ASSERT_FLOAT_EQ(collision_depth, expected_collision_depth);
+}
+
+INSTANTIATE_TEST_CASE_P(CollisionTests, CollisionDepthCalculation,
+                        ::testing::Values(std::make_tuple(
+                            make_test_collider(glm::vec2(5, 5), 10, 10),
+                            make_test_collider(glm::vec2(10, 10), 10, 6),
+                            glm::vec2(5 / glm::sqrt(2 * glm::pow(5, 2))),
+                            40 / glm::sqrt(2 * glm::pow(5, 2)))));
