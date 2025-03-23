@@ -14,4 +14,7 @@ void run_physics_loop(const Scene *scene) {
       collision_detection::evaluate_possible_collision(
           scene->game_objects.at(0)->get_collider(),
           scene->game_objects.at(1)->get_collider());
+
+  if (collision)
+    std::cout << "Colliding" << std::endl;
 }

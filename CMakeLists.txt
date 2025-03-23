@@ -43,3 +43,5 @@ add_executable(run_test ${TEST_FILES})
 target_link_libraries(run_test hurricane_lib GTest::gtest_main)
 include(GoogleTest)
 gtest_discover_tests(run_test)
+
+add_test(NAME test COMMAND run_test)
