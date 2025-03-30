@@ -7,8 +7,8 @@
 #include "physics/physics.hpp"
 
 void run_physics_loop(const Scene *scene) {
-  // TODO: (Danuk) Run the coarse collision detector
-  // TODO: (Danuk) Extend for arbitrary number of colliders
+  // TODO: Run the coarse collision detector
+  // TODO: Extend for arbitrary number of colliders
 
   std::optional<Collision> collision =
       collision_detection::evaluate_possible_collision(
