@@ -95,8 +95,6 @@ void Box::load_shaders() {
 BoxCollider &Box::get_collider() { return *collider; }
 
 void Box::render() {
-  glm::vec3 sprite_color = glm::vec3(0.0f, 1.0f, 0.0f);
-
   shader_program.use();
   shader_program.set_matrix_4("model_matrix", model_matrix);
   shader_program.set_vector_3_float("sprite_color", sprite_color);
