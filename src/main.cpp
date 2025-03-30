@@ -36,8 +36,9 @@ void game_loop() {
     scene.render();
     Clock::update_time();
 
-    handle_user_input(scene, window, &reader);
-    run_physics_loop(&scene);
+    // TODO: Implement for circles
+    // handle_user_input(scene, window, &reader);
+    // run_physics_loop(&scene);
 
     glfwSwapBuffers(window);
     clear_screen();

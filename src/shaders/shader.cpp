@@ -96,12 +96,28 @@ void Shader::set_vector_3_float(std::string vector_name,
   glUniform3f(uniform_location, vector.x, vector.y, vector.z);
 }
 
+void Shader::set_vec_2_float(std::string vector_name, glm::vec2 vector) const {
+  this->use();
+
+  auto uniform_location =
+      glGetUniformLocation(shader_program_id, vector_name.c_str());
+  glUniform2f(uniform_location, vector.x, vector.y);
+}
+
 void Shader::set_int(std::string integer_name, unsigned int integer) const {
   this->use();
 
   auto uniform_location =
       glGetUniformLocation(shader_program_id, integer_name.c_str());
   glUniform1i(uniform_location, integer);
+}
+
+void Shader::set_float(std::string float_name, float float_value) const {
+  this->use();
+
+  auto uniform_location =
+      glGetUniformLocation(shader_program_id, float_name.c_str());
+  glUniform1f(uniform_location, float_value);
 }
 
 void Shader::use() const { glUseProgram(shader_program_id); }

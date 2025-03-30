@@ -1,9 +1,15 @@
-#include "rendering/scene.hpp"
 #include <utility>
 #include <vector>
 
+#include "game_objects/circle.hpp"
+#include "rendering/scene.hpp"
+
 void Scene::add_box(std::unique_ptr<Box> box) {
   game_objects.push_back(std::move(box));
+}
+
+void Scene::add_circle(std::unique_ptr<Circle> circle) {
+  circles.push_back(std::move(circle));
 }
 
 void Scene::render() {

@@ -4,11 +4,14 @@
 #include <vector>
 
 #include "game_objects/box.hpp"
+#include "game_objects/circle.hpp"
 
 class Scene {
 public:
   Scene() {}
-  void render();
+  virtual void render();
   void add_box(std::unique_ptr<Box>);
+  void add_circle(std::unique_ptr<Circle>);
   std::vector<std::unique_ptr<Box>> game_objects;
+  std::vector<std::unique_ptr<Circle>> circles;
 };
