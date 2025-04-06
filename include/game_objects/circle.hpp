@@ -25,7 +25,7 @@ public:
   void render() override;
   void handle_user_input(std::vector<Input> user_input) override;
 
-  CircleCollider &get_collider();
+  CircleCollider &get_collider() override;
 
 private:
   // Game object specific fields

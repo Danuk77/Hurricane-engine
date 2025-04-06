@@ -1,6 +1,5 @@
 #include <iostream>
 
-#include "GLFW/glfw3.h"
 #include "rendering/screen.hpp"
 
 void configure_opengl_version() {
