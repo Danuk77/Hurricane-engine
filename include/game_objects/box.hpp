@@ -6,13 +6,14 @@
 #include <vector>
 
 #include "./transform.hpp"
+#include "game_objects/gameobject.hpp"
 #include "input/input.hpp"
 #include "physics/colliders/box_collider.hpp"
 #include "shaders/shader.hpp"
 
 Shader load_shaders();
 
-class Box {
+class Box : public GameObject {
 public:
   std::string box_name;
   glm::vec3 sprite_color = glm::vec3(0, 1, 0);
@@ -20,8 +21,8 @@ public:
   Box(std::string box_name, std::shared_ptr<Transform> Transform,
       std::unique_ptr<BoxCollider> collider);
 
-  void render();
-  void handle_user_input(std::vector<Input> user_input);
+  void render() override;
+  void handle_user_input(std::vector<Input> user_input) override;
 
   BoxCollider &get_collider();
 

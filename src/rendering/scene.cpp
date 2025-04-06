@@ -4,16 +4,13 @@
 #include "game_objects/circle.hpp"
 #include "rendering/scene.hpp"
 
-void Scene::add_box(std::unique_ptr<Box> box) {
-  game_objects.push_back(std::move(box));
-}
-
-void Scene::add_circle(std::unique_ptr<Circle> circle) {
-  circles.push_back(std::move(circle));
+void Scene::add_gameobject(std::unique_ptr<GameObject> game_object) {
+  game_objects.push_back(std::move(game_object));
 }
 
 void Scene::render() {
-  typedef std::vector<std::unique_ptr<Box>>::iterator game_object_iterator;
+  typedef std::vector<std::unique_ptr<GameObject>>::iterator
+      game_object_iterator;
 
   if (game_objects.size() <= 0) {
     return;

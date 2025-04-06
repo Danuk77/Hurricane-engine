@@ -37,7 +37,7 @@ void game_loop() {
     Clock::update_time();
 
     // TODO: Implement for circles
-    // handle_user_input(scene, window, &reader);
+    handle_user_input(scene, window, &reader);
     // run_physics_loop(&scene);
 
     glfwSwapBuffers(window);
@@ -55,7 +55,7 @@ void handle_user_input(const Scene &scene, GLFWwindow *window,
                        InputReader *reader) {
   std::vector<Input> current_frame_inputs = reader->read_user_input(window);
 std:
-  std::unique_ptr<Box> movable_box;
+  std::unique_ptr<GameObject> movable_box;
   if (scene.game_objects.size() > 0) {
     (*scene.game_objects.at(0)).handle_user_input(current_frame_inputs);
   }

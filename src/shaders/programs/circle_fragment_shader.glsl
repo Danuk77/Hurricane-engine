@@ -18,6 +18,6 @@ void main() {
 
     output_color = vec4(sprite_color, alpha);
   }else{
-    output_color = vec4(0.0, 0, 0, 1.0f);
+    output_color = vec4(0, 0, 0, 0);
   }
 }

@@ -4,5 +4,4 @@
 class TwoCircles : public Scene {
 public:
   TwoCircles();
-  void render() override;
 };

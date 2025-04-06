@@ -6,13 +6,14 @@
 #include <vector>
 
 #include "./transform.hpp"
+#include "game_objects/gameobject.hpp"
 #include "input/input.hpp"
 #include "physics/colliders/circle_collider.hpp"
 #include "shaders/shader.hpp"
 
 Shader load_shaders();
 
-class Circle {
+class Circle : public GameObject {
 public:
   std::string box_name;
   float radius;
@@ -21,8 +22,8 @@ public:
   Circle(std::string circle_name, std::shared_ptr<Transform> Transform,
          std::unique_ptr<CircleCollider> collider, float radius);
 
-  void render();
-  void handle_user_input(std::vector<Input> user_input);
+  void render() override;
+  void handle_user_input(std::vector<Input> user_input) override;
 
   CircleCollider &get_collider();
 
