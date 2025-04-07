@@ -5,7 +5,6 @@
 #include "glm/ext/vector_float2.hpp"
 #include "physics/collision_detection/detectors/box_box_detector.hpp"
 
-namespace collision_detection {
 BoxColliderEdgeCoordinates
 generate_box_collider_coordinates(const BoxCollider *collider) {
   BoxColliderEdgeCoordinates coordinates;
@@ -61,4 +60,3 @@ float calculate_collision_depth(
 
   return collision_depth_in_normal_direction;
 }
-} // namespace collision_detection

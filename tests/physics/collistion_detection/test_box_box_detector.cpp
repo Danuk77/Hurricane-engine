@@ -28,8 +28,8 @@ std::shared_ptr<BoxCollider> make_test_collider(glm::vec2 position, float width,
 TEST(BoxColliderEdgeCoordinatesGeneration, TEST_GENERATING_COORDINATES) {
   std::shared_ptr<BoxCollider> collider =
       make_test_collider(glm::vec2(10, 10), 10, 10);
-  collision_detection::BoxColliderEdgeCoordinates coordinates =
-      collision_detection::generate_box_collider_coordinates(collider.get());
+  BoxColliderEdgeCoordinates coordinates =
+      generate_box_collider_coordinates(collider.get());
 
   EXPECT_EQ(coordinates.left_edge_x, 5);
   EXPECT_EQ(coordinates.right_edge_x, 15);
@@ -53,14 +53,11 @@ TEST_P(CollisionTestParametrizedFixture, TEST_IF_TWO_BOXES_COLLIDE) {
   std::shared_ptr<BoxCollider> collider_two = std::get<1>(GetParam());
   bool expected_collision_status = std::get<2>(GetParam());
 
-  collision_detection::BoxColliderEdgeCoordinates coordinates_one =
-      collision_detection::generate_box_collider_coordinates(
-          collider_one.get());
-  collision_detection::BoxColliderEdgeCoordinates coordinates_two =
-      collision_detection::generate_box_collider_coordinates(
-          collider_two.get());
-  bool collision_status =
-      collision_detection::is_colliding(&coordinates_one, &coordinates_two);
+  BoxColliderEdgeCoordinates coordinates_one =
+      generate_box_collider_coordinates(collider_one.get());
+  BoxColliderEdgeCoordinates coordinates_two =
+      generate_box_collider_coordinates(collider_two.get());
+  bool collision_status = is_colliding(&coordinates_one, &coordinates_two);
   ASSERT_EQ(collision_status, expected_collision_status);
 }
 
@@ -96,8 +93,8 @@ TEST_P(CollisionNormalCalculation, TEST_CALCULATING_COLLISION_NORMAL) {
   std::shared_ptr<BoxCollider> collider_two = std::get<1>(GetParam());
 
   glm::vec2 expected_collision_normal = std::get<2>(GetParam());
-  glm::vec2 collision_normal = collision_detection::calculate_collision_normal(
-      collider_one.get(), collider_two.get());
+  glm::vec2 collision_normal =
+      calculate_collision_normal(collider_one.get(), collider_two.get());
 
   ASSERT_FLOAT_EQ(collision_normal.x, expected_collision_normal.x);
   ASSERT_FLOAT_EQ(collision_normal.y, expected_collision_normal.y);
@@ -135,14 +132,12 @@ TEST_P(CollisionDepthCalculation, TEST_CALCULATING_COLLISION_DEPTH) {
   glm::vec2 collision_normal = std::get<2>(GetParam());
   float expected_collision_depth = std::get<3>(GetParam());
 
-  collision_detection::BoxColliderEdgeCoordinates coordinates_one =
-      collision_detection::generate_box_collider_coordinates(
-          collider_one.get());
-  collision_detection::BoxColliderEdgeCoordinates coordinates_two =
-      collision_detection::generate_box_collider_coordinates(
-          collider_two.get());
+  BoxColliderEdgeCoordinates coordinates_one =
+      generate_box_collider_coordinates(collider_one.get());
+  BoxColliderEdgeCoordinates coordinates_two =
+      generate_box_collider_coordinates(collider_two.get());
 
-  float collision_depth = collision_detection::calculate_collision_depth(
+  float collision_depth = calculate_collision_depth(
       &coordinates_one, &coordinates_two, collision_normal);
 
   ASSERT_FLOAT_EQ(collision_depth, expected_collision_depth);

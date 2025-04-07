@@ -1,8 +1,6 @@
 #pragma once
 #include "../../colliders/box_collider.hpp"
 
-namespace collision_detection {
-
 struct BoxColliderEdgeCoordinates {
   float right_edge_x;
   float left_edge_x;
@@ -20,4 +18,3 @@ float calculate_collision_depth(
     const BoxColliderEdgeCoordinates *collider_one_coordinates,
     const BoxColliderEdgeCoordinates *collider_two_coordinates,
     const glm::vec2 collision_normal);
-} // namespace collision_detection

@@ -2,11 +2,19 @@
 #include <optional>
 
 #include "../collision.hpp"
-#include "detectors/box_box_detector.hpp"
-#include "physics/colliders/box_collider.hpp"
 
-namespace collision_detection {
-std::optional<Collision>
-evaluate_possible_collision(const BoxCollider &collider_one,
-                            const BoxCollider &collider_two);
-}
+class BoxCollider;
+class CircleCollider;
+
+struct CollisionDetector {
+public:
+  virtual std::optional<Collision>
+  detect(const BoxCollider &collider_one,
+         const BoxCollider &collider_two) const = 0;
+  virtual std::optional<Collision>
+  detect(const CircleCollider &collider_one,
+         const CircleCollider &collider_two) const = 0;
+  virtual std::optional<Collision>
+  detect(const BoxCollider &collider_one,
+         const CircleCollider &collider_two) const = 0;
+};
