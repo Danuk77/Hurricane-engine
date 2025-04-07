@@ -16,7 +16,6 @@ Shader load_shaders();
 class Box : public GameObject {
 public:
   std::string box_name;
-  glm::vec3 sprite_color = glm::vec3(0, 1, 0);
 
   Box(std::string box_name, std::shared_ptr<Transform> Transform,
       std::unique_ptr<BoxCollider> collider);

@@ -29,8 +29,8 @@ int main() {
 void game_loop() {
   GLFWwindow *window = create_window();
   InputReader reader;
-  // TwoBoxes scene;
-  TwoCircles scene;
+  TwoBoxes scene;
+  // TwoCircles scene;
 
   while (!glfwWindowShouldClose(window)) {
     scene.render();
@@ -38,7 +38,7 @@ void game_loop() {
 
     // TODO: Implement for circles
     handle_user_input(scene, window, &reader);
-    // run_physics_loop(&scene);
+    run_physics_loop(&scene);
 
     glfwSwapBuffers(window);
     clear_screen();

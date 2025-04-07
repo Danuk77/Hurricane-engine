@@ -17,7 +17,6 @@ class Circle : public GameObject {
 public:
   std::string box_name;
   float radius;
-  glm::vec3 sprite_color = glm::vec3(0, 1, 0);
 
   Circle(std::string circle_name, std::shared_ptr<Transform> Transform,
          std::unique_ptr<CircleCollider> collider, float radius);
