@@ -88,7 +88,8 @@ class CollisionNormalCalculation
           std::tuple<std::shared_ptr<BoxCollider>, std::shared_ptr<BoxCollider>,
                      glm::vec2>> {};
 
-TEST_P(CollisionNormalCalculation, TEST_CALCULATING_COLLISION_NORMAL) {
+TEST_P(CollisionNormalCalculation,
+       TEST_CALCULATING_COLLISION_NORMAL_FOR_BOXES) {
   std::shared_ptr<BoxCollider> collider_one = std::get<0>(GetParam());
   std::shared_ptr<BoxCollider> collider_two = std::get<1>(GetParam());
 
@@ -126,7 +127,7 @@ class CollisionDepthCalculation
           std::tuple<std::shared_ptr<BoxCollider>, std::shared_ptr<BoxCollider>,
                      glm::vec2, float>> {};
 
-TEST_P(CollisionDepthCalculation, TEST_CALCULATING_COLLISION_DEPTH) {
+TEST_P(CollisionDepthCalculation, TEST_CALCULATING_COLLISION_DEPTH_FOR_BOXES) {
   std::shared_ptr<BoxCollider> collider_one = std::get<0>(GetParam());
   std::shared_ptr<BoxCollider> collider_two = std::get<1>(GetParam());
   glm::vec2 collision_normal = std::get<2>(GetParam());

@@ -14,19 +14,19 @@ public:
   CircleCollider(float radius, std::shared_ptr<Transform> transform)
       : radius(radius), transform(std::move(transform)) {}
 
-  virtual std::optional<Collision>
+  std::optional<Collision>
   accept_detector(const CollisionDetector &detector,
-                  const Collider &collider) const {
+                  const Collider &collider) const override {
     return collider.accept_detector(detector, *this);
   }
-  virtual std::optional<Collision>
+  std::optional<Collision>
   accept_detector(const CollisionDetector &detector,
-                  const BoxCollider &box_collider) const {
+                  const BoxCollider &box_collider) const override {
     return detector.detect(box_collider, *this);
   }
-  virtual std::optional<Collision>
+  std::optional<Collision>
   accept_detector(const CollisionDetector &detector,
-                  const CircleCollider &circle_collider) const {
+                  const CircleCollider &circle_collider) const override {
     return detector.detect(*this, circle_collider);
   }
 };

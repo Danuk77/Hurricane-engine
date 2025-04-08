@@ -29,14 +29,13 @@ int main() {
 void game_loop() {
   GLFWwindow *window = create_window();
   InputReader reader;
-  TwoBoxes scene;
-  // TwoCircles scene;
+  // TwoBoxes scene;
+  TwoCircles scene;
 
   while (!glfwWindowShouldClose(window)) {
     scene.render();
     Clock::update_time();
 
-    // TODO: Implement for circles
     handle_user_input(scene, window, &reader);
     run_physics_loop(&scene);
 
