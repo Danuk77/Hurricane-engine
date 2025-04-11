@@ -10,8 +10,8 @@ struct CircleCollisionPreprocessInformation {
   float sum_of_radii;
 };
 
-std::optional<Collision> evaluate_collision(const CircleCollider &collider_one,
-                                            const CircleCollider &collider_two);
+std::optional<Collision> evaluate_collision(const CircleCollider *collider_one,
+                                            const CircleCollider *collider_two);
 CircleCollisionPreprocessInformation
 pre_process_circle_collision(const CircleCollider *collider_one,
                              const CircleCollider *collider_two);

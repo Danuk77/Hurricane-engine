@@ -1,17 +1,16 @@
 #include "physics/collision_detection/detectors/circle_circle_detector.hpp"
-#include "game_objects/circle.hpp"
 
 std::optional<Collision>
-evaluate_collision(const CircleCollider &collider_one,
-                   const CircleCollider &collider_two) {
+evaluate_collision(const CircleCollider *collider_one,
+                   const CircleCollider *collider_two) {
   CircleCollisionPreprocessInformation collision_information =
-      pre_process_circle_collision(&collider_one, &collider_two);
+      pre_process_circle_collision(collider_one, collider_two);
   if (!is_colliding(collision_information)) {
     return std::nullopt;
   }
 
   glm::vec2 collision_normal =
-      calculate_collision_normal(&collider_one, &collider_two);
+      calculate_collision_normal(collider_one, collider_two);
   float collision_depth = calculate_collision_depth(collision_information);
   return Collision(collision_depth, collision_normal);
 }

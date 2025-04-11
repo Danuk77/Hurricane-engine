@@ -12,6 +12,7 @@
 #include "input/input_reader.hpp"
 #include "physics/physics.hpp"
 #include "rendering/scene.hpp"
+#include "rendering/scenes/box_and_circle.hpp"
 #include "rendering/scenes/two_boxes.hpp"
 #include "rendering/scenes/two_circles.hpp"
 #include "rendering/screen.hpp"
@@ -30,7 +31,8 @@ void game_loop() {
   GLFWwindow *window = create_window();
   InputReader reader;
   // TwoBoxes scene;
-  TwoCircles scene;
+  // TwoCircles scene;
+  BoxAndCircle scene;
 
   while (!glfwWindowShouldClose(window)) {
     scene.render();

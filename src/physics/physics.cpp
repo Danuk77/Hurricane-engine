@@ -6,9 +6,10 @@
 #include "physics/physics.hpp"
 #include "rendering/scene.hpp"
 
+PrimitiveDetector detector;
+
 // TODO: Add coarce collision detection
 void run_physics_loop(const Scene *scene) {
-  PrimitiveDetector detector;
   generate_contacts(detector, scene);
 }
 
