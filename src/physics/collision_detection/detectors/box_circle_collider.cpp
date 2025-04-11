@@ -10,14 +10,19 @@ evaluate_collision(const BoxCollider *box_collider,
                    const CircleCollider *circle_collider) {
   glm::vec2 closest_box_point = calculate_closest_position_to_circle_on_box(
       box_collider, circle_collider);
-  float collision_depth =
+  float distance_from_circle_center_to_closest_box_point =
       glm::distance(circle_collider->transform->position, closest_box_point);
 
-  if (collision_depth > circle_collider->radius)
+  float collision_depth = circle_collider->radius -
+                          distance_from_circle_center_to_closest_box_point;
+
+  if (collision_depth < 0)
     return std::nullopt;
 
   glm::vec2 collision_normal =
       circle_collider->transform->position - box_collider->transform->position;
+
+  std::cout << collision_depth << std::endl;
 
   return Collision(collision_depth, collision_normal);
 }
