@@ -2,6 +2,7 @@
 #include <optional>
 
 #include "physics/collision.hpp"
+#include "physics/collision_detection/detector.hpp"
 #include "physics/collision_detection/detectors/primitive_detector.hpp"
 #include "physics/physics.hpp"
 #include "rendering/scene.hpp"
@@ -9,14 +10,15 @@
 PrimitiveDetector detector;
 
 // TODO: Add coarce collision detection
+// NOTE: We may want to have the physics cycles run at a constant rate (Have it
+// run after every x milliseconds)
 void run_physics_loop(const Scene *scene) {
   generate_contacts(detector, scene);
 }
 
-// TODO: make primitive detector abstract
 // TODO: Return a list of contacts
 // TODO: Cleanup
-void generate_contacts(const PrimitiveDetector &detector, const Scene *scene) {
+void generate_contacts(const CollisionDetector &detector, const Scene *scene) {
   for (unsigned int i = 0; i < scene->game_objects.size(); i++) {
     for (unsigned int j = i + 1; j < scene->game_objects.size(); j++) {
       Collider &collider_one = scene->game_objects.at(i)->get_collider();
