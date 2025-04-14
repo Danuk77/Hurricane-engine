@@ -13,6 +13,7 @@
 #include "./clock.hpp"
 #include "./file_reader.hpp"
 #include "game_objects/box.hpp"
+#include "physics/particle.hpp"
 #include "shaders/shader.hpp"
 
 unsigned int Box::vertex_array_object = 0;
@@ -21,8 +22,10 @@ glm::mat4 Box::projection_matrix =
     glm::ortho(0.0f, 800.0f, 600.0f, 0.0f, -1.0f, 1.0f);
 
 Box::Box(std::string box_name, std::shared_ptr<Transform> transform,
-         std::unique_ptr<BoxCollider> collider)
-    : transform(std::move(transform)), collider(std::move(collider)) {
+         std::unique_ptr<BoxCollider> collider,
+         std::unique_ptr<Particle> particle)
+    : transform(std::move(transform)), collider(std::move(collider)),
+      particle(std::move(particle)) {
   set_vertex_data();
   initialise_model_matrix();
   load_shaders();
@@ -116,40 +119,37 @@ void Box::handle_user_input(std::vector<Input> user_input) {
 }
 
 void Box::move(Input direction) {
+  float movement_force = 100;
   switch (direction) {
   case LEFT:
-    move_left();
+    move_left(movement_force);
     break;
   case RIGHT:
-    move_right();
+    move_right(movement_force);
     break;
   case UP:
-    move_up();
+    move_up(movement_force);
     break;
   case DOWN:
-    move_down();
+    move_down(movement_force);
     break;
   }
 
   initialise_model_matrix();
 }
 
-void Box::move_left() {
-  transform->position.x -=
-      (movement_velocity * Clock::get_time_since_last_frame());
+void Box::move_left(float movement_force) {
+  particle->apply_force(glm::vec2(-movement_force, 0));
 }
 
-void Box::move_right() {
-  transform->position.x +=
-      (movement_velocity * Clock::get_time_since_last_frame());
+void Box::move_right(float movement_force) {
+  particle->apply_force(glm::vec2(movement_force, 0));
 }
 
-void Box::move_up() {
-  transform->position.y -=
-      (movement_velocity * Clock::get_time_since_last_frame());
+void Box::move_up(float movement_force) {
+  particle->apply_force(glm::vec2(0, movement_force));
 }
 
-void Box::move_down() {
-  transform->position.y +=
-      (movement_velocity * Clock::get_time_since_last_frame());
+void Box::move_down(float movement_force) {
+  particle->apply_force(glm::vec2(0, -movement_force));
 }

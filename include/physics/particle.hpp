@@ -13,9 +13,9 @@ public:
 private:
   std::shared_ptr<Transform> transform;
 
-  glm::vec2 velocity;
-  glm::vec2 acceleration;
-  glm::vec2 accumulated_force;
+  glm::vec2 velocity = glm::vec2(0);
+  glm::vec2 acceleration = glm::vec2(0);
+  glm::vec2 accumulated_force = glm::vec2(0);
   float inverse_mass;
   float damping_factor;
 

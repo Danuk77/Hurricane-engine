@@ -13,6 +13,7 @@
 #include "./file_reader.hpp"
 #include "game_objects/circle.hpp"
 #include "physics/colliders/circle_collider.hpp"
+#include "physics/particle.hpp"
 #include "shaders/shader.hpp"
 
 unsigned int Circle::vertex_array_object = 0;
@@ -21,9 +22,10 @@ glm::mat4 Circle::projection_matrix =
     glm::ortho(0.0f, 800.0f, 600.0f, 0.0f, -1.0f, 1.0f);
 
 Circle::Circle(std::string circle_name, std::shared_ptr<Transform> transform,
-               std::unique_ptr<CircleCollider> collider, float radius)
+               std::unique_ptr<CircleCollider> collider, float radius,
+               std::unique_ptr<Particle> particle)
     : transform(std::move(transform)), collider(std::move(collider)),
-      radius(radius) {
+      radius(radius), particle(std::move(particle)) {
   set_vertex_data();
   initialise_model_matrix();
   load_shaders();
@@ -137,22 +139,10 @@ void Circle::move(Input direction) {
   initialise_model_matrix();
 }
 
-void Circle::move_left() {
-  transform->position.x -=
-      (movement_velocity * Clock::get_time_since_last_frame());
-}
+void Circle::move_left() { particle->apply_force(glm::vec2(-1, 0)); }
 
-void Circle::move_right() {
-  transform->position.x +=
-      (movement_velocity * Clock::get_time_since_last_frame());
-}
+void Circle::move_right() { particle->apply_force(glm::vec2(1, 0)); }
 
-void Circle::move_up() {
-  transform->position.y -=
-      (movement_velocity * Clock::get_time_since_last_frame());
-}
+void Circle::move_up() { particle->apply_force(glm::vec2(0, 1)); }
 
-void Circle::move_down() {
-  transform->position.y +=
-      (movement_velocity * Clock::get_time_since_last_frame());
-}
+void Circle::move_down() { particle->apply_force(glm::vec2(0, -1)); }
