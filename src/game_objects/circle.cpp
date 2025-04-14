@@ -121,28 +121,39 @@ void Circle::handle_user_input(std::vector<Input> user_input) {
 }
 
 void Circle::move(Input direction) {
+  float movement_force = 100;
   switch (direction) {
   case LEFT:
-    move_left();
+    move_left(movement_force);
     break;
   case RIGHT:
-    move_right();
+    move_right(movement_force);
     break;
   case UP:
-    move_up();
+    move_up(movement_force);
     break;
   case DOWN:
-    move_down();
+    move_down(movement_force);
     break;
   }
 
   initialise_model_matrix();
 }
 
-void Circle::move_left() { particle->apply_force(glm::vec2(-1, 0)); }
+void Circle::move_left(float movement_force) {
+  particle->apply_force(glm::vec2(-movement_force, 0));
+}
 
-void Circle::move_right() { particle->apply_force(glm::vec2(1, 0)); }
+void Circle::move_right(float movement_force) {
+  particle->apply_force(glm::vec2(movement_force, 0));
+}
 
-void Circle::move_up() { particle->apply_force(glm::vec2(0, 1)); }
+void Circle::move_up(float movement_force) {
+  // Up and down is reversed
+  particle->apply_force(glm::vec2(0, -movement_force));
+}
 
-void Circle::move_down() { particle->apply_force(glm::vec2(0, -1)); }
+void Circle::move_down(float movement_force) {
+  // Up and down is reversed
+  particle->apply_force(glm::vec2(0, movement_force));
+}

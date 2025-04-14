@@ -4,13 +4,12 @@
 #include "glm/exponential.hpp"
 #include "physics/particle.hpp"
 
-Particle::Particle(std::shared_ptr<Transform> transform, float mass)
-    : transform(transform) {
+Particle::Particle(std::shared_ptr<Transform> transform, float inverse_mass)
+    : transform(transform), inverse_mass(inverse_mass) {
   velocity = glm::vec2(0);
   acceleration = glm::vec2(0);
   accumulated_force = glm::vec2(0);
-
-  inverse_mass = (1 / mass);
+  damping_factor = 0.95f;
 }
 
 void Particle::apply_force(glm::vec2 force) { accumulated_force += force; }

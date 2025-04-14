@@ -18,6 +18,7 @@ void Scene::render() {
 
   for (game_object_iterator game_object = game_objects.begin();
        game_object != game_objects.end(); game_object++) {
+    (*game_object)->initialise_model_matrix();
     (*game_object)->render();
   }
 }

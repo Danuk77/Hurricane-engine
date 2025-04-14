@@ -147,9 +147,11 @@ void Box::move_right(float movement_force) {
 }
 
 void Box::move_up(float movement_force) {
-  particle->apply_force(glm::vec2(0, movement_force));
+  // Up and down is reversed
+  particle->apply_force(glm::vec2(0, -movement_force));
 }
 
 void Box::move_down(float movement_force) {
-  particle->apply_force(glm::vec2(0, -movement_force));
+  // Up and down is reversed
+  particle->apply_force(glm::vec2(0, movement_force));
 }

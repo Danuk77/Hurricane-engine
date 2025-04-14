@@ -8,9 +8,8 @@
 #include "rendering/scenes/box_and_circle.hpp"
 
 BoxAndCircle::BoxAndCircle() {
-  std::unique_ptr<Box> box = create_box("box_one", 5, 5, 100, 100, 0.5);
-  std::unique_ptr<Circle> circle =
-      create_circle("circle_two", 200, 200, 50, 0.5);
+  std::unique_ptr<Box> box = create_box("box_one", 5, 5, 100, 100, 2);
+  std::unique_ptr<Circle> circle = create_circle("circle_two", 200, 200, 50, 1);
 
   add_gameobject(std::move(box));
   add_gameobject(std::move(circle));

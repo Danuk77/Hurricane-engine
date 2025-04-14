@@ -29,6 +29,7 @@ public:
   void apply_forces() override {
     particle->execute_physics_tick(Clock::get_time_since_last_frame());
   }
+  Particle *get_particle() override { return particle.get(); };
 
   CircleCollider &get_collider() override;
 
@@ -47,11 +48,11 @@ private:
 
   void load_shaders();
   void set_vertex_data();
-  void initialise_model_matrix();
+  void initialise_model_matrix() override;
 
   void move(Input direction);
-  void move_left();
-  void move_right();
-  void move_up();
-  void move_down();
+  void move_left(float movement_force);
+  void move_right(float movement_force);
+  void move_up(float movement_force);
+  void move_down(float movement_force);
 };

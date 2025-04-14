@@ -28,6 +28,7 @@ public:
   void apply_forces() override {
     particle->execute_physics_tick(Clock::get_time_since_last_frame());
   }
+  Particle *get_particle() override { return particle.get(); };
 
   BoxCollider &get_collider() override;
 
@@ -46,7 +47,8 @@ private:
 
   void load_shaders();
   void set_vertex_data();
-  void initialise_model_matrix();
+  void initialise_model_matrix() override;
+  void update_model_matrix();
 
   void move(Input direction);
   void move_left(float movement_force);

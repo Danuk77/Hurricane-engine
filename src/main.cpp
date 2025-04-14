@@ -36,9 +36,8 @@ void game_loop() {
   // TwoCircles scene;
   BoxAndCircle scene;
 
-  // std::chrono::time_point<std::chrono::steady_clock> start_time;
-  // std::chrono::time_point<std::chrono::steady_clock> end_time;
-  auto start_time = std::chrono::high_resolution_clock::now();
+  // TODO: Move into separate frame rate tracker module
+  // auto start_time = std::chrono::high_resolution_clock::now();
   int frames = 0;
 
   while (!glfwWindowShouldClose(window)) {
@@ -52,16 +51,16 @@ void game_loop() {
     clear_screen();
     glfwPollEvents();
 
-    auto end_time = std::chrono::high_resolution_clock::now();
-    std::chrono::duration<float> duration = end_time - start_time;
-    frames++;
+    // auto end_time = std::chrono::high_resolution_clock::now();
+    // std::chrono::duration<float> duration = end_time - start_time;
+    // frames++;
 
-    if (duration.count() > 1) {
-      start_time = std::chrono::high_resolution_clock::now();
-      std::cout << frames << std::endl;
+    // if (duration.count() > 1) {
+    //   start_time = std::chrono::high_resolution_clock::now();
+    //   //std::cout << frames << std::endl;
 
-      frames = 0;
-    }
+    //  frames = 0;
+    //}
   }
 }
 
