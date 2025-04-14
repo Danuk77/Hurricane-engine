@@ -5,6 +5,8 @@
 #include <GLFW/glfw3.h>
 // clang-format on
 
+#include <chrono>
+#include <iostream>
 #include <memory>
 #include <vector>
 
@@ -34,6 +36,11 @@ void game_loop() {
   // TwoCircles scene;
   BoxAndCircle scene;
 
+  // std::chrono::time_point<std::chrono::steady_clock> start_time;
+  // std::chrono::time_point<std::chrono::steady_clock> end_time;
+  auto start_time = std::chrono::high_resolution_clock::now();
+  int frames = 0;
+
   while (!glfwWindowShouldClose(window)) {
     scene.render();
     Clock::update_time();
@@ -44,6 +51,17 @@ void game_loop() {
     glfwSwapBuffers(window);
     clear_screen();
     glfwPollEvents();
+
+    auto end_time = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<float> duration = end_time - start_time;
+    frames++;
+
+    if (duration.count() > 1) {
+      start_time = std::chrono::high_resolution_clock::now();
+      std::cout << frames << std::endl;
+
+      frames = 0;
+    }
   }
 }
 

@@ -18,8 +18,6 @@ void Particle::apply_force(glm::vec2 force) { accumulated_force += force; }
 void Particle::clear_accumulated_force() { accumulated_force = glm::vec2(0); }
 
 void Particle::execute_physics_tick(float duration_from_last_tick) {
-  std::cout << transform->position.x << std::endl;
-  std::cout << transform->position.y << std::endl;
   transform->position =
       transform->position + (velocity * duration_from_last_tick);
   acceleration = inverse_mass * accumulated_force;
