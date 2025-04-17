@@ -32,8 +32,8 @@ int main() {
 void game_loop() {
   GLFWwindow *window = create_window();
   InputReader reader;
-  TwoBoxes scene;
-  // TwoCircles scene;
+  // TwoBoxes scene;
+  TwoCircles scene;
   // BoxAndCircle scene;
 
   // TODO: Move into separate frame rate tracker module

@@ -1,4 +1,5 @@
 #include "physics/collision_detection/detectors/circle_circle_detector.hpp"
+#include <iostream>
 
 std::optional<Collision>
 evaluate_collision(const CircleCollider *collider_one,
@@ -12,6 +13,7 @@ evaluate_collision(const CircleCollider *collider_one,
   glm::vec2 collision_normal =
       calculate_collision_normal(collider_one, collider_two);
   float collision_depth = calculate_collision_depth(collision_information);
+  std::cout << collision_depth << std::endl;
   return Collision(collision_depth, collision_normal);
 }
 
@@ -32,12 +34,12 @@ bool is_colliding(
 
 glm::vec2 calculate_collision_normal(const CircleCollider *collider_one,
                                      const CircleCollider *collider_two) {
-  return collider_two->transform->position - collider_one->transform->position;
+  return glm::normalize(collider_two->transform->position -
+                        collider_one->transform->position);
 }
 
-// TODO: Fix
 float calculate_collision_depth(
     const CircleCollisionPreprocessInformation &collision_information) {
-  return collision_information.distance_between_centers -
-         collision_information.sum_of_radii;
+  return collision_information.sum_of_radii -
+         collision_information.distance_between_centers;
 }
