@@ -16,7 +16,7 @@ PrimitiveDetector detector;
 // run after every x milliseconds)
 void run_physics_loop(Scene *scene) {
   apply_forces(scene);
-  generate_contacts(detector, scene);
+  std::vector<Collision> collisions = generate_contacts(detector, scene);
 }
 
 void apply_forces(Scene *scene) {
@@ -29,9 +29,9 @@ void apply_forces(Scene *scene) {
   }
 }
 
-// TODO: Return a list of contacts
-// TODO: Cleanup
-void generate_contacts(const CollisionDetector &detector, Scene *scene) {
+std::vector<Collision> generate_contacts(const CollisionDetector &detector,
+                                         Scene *scene) {
+  std::vector<Collision> collisions;
   for (unsigned int i = 0; i < scene->game_objects.size(); i++) {
     for (unsigned int j = i + 1; j < scene->game_objects.size(); j++) {
       Collider &collider_one = scene->game_objects.at(i)->get_collider();
@@ -40,8 +40,11 @@ void generate_contacts(const CollisionDetector &detector, Scene *scene) {
       std::optional<Collision> collision =
           collider_one.accept_detector(detector, collider_two);
 
-      // NOTE: Get rid of (Used only for testing)
       if (collision) {
+        collisions.push_back(collision.value());
+        // std::cout << collision->collision_normal.x << " " <<
+        // collision->collision_normal.y << std::endl; std::cout <<
+        // collision->collision_depth << std::endl;
         scene->game_objects.at(0)->sprite_color = glm::vec3(1, 0, 0);
         scene->game_objects.at(1)->sprite_color = glm::vec3(1, 0, 0);
       } else {
@@ -50,4 +53,5 @@ void generate_contacts(const CollisionDetector &detector, Scene *scene) {
       }
     }
   }
+  return collisions;
 }

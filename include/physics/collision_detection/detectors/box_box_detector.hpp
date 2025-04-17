@@ -1,5 +1,6 @@
 #pragma once
 #include <optional>
+#include <tuple>
 
 #include "../../colliders/box_collider.hpp"
 #include "physics/collision.hpp"
@@ -17,9 +18,8 @@ BoxColliderEdgeCoordinates
 generate_box_collider_coordinates(const BoxCollider *collider);
 bool is_colliding(const BoxColliderEdgeCoordinates *collider_one_coordinates,
                   const BoxColliderEdgeCoordinates *collider_two_coordinates);
-glm::vec2 calculate_collision_normal(const BoxCollider *collider_one,
-                                     const BoxCollider *collider_two);
-float calculate_collision_depth(
-    const BoxColliderEdgeCoordinates *collider_one_coordinates,
-    const BoxColliderEdgeCoordinates *collider_two_coordinates,
-    const glm::vec2 collision_normal);
+Collision
+generate_collision(BoxColliderEdgeCoordinates *collider_one_coordinates,
+                   BoxColliderEdgeCoordinates *collider_two_coordinates);
+std::tuple<int, float> arg_min(float array[], int array_size);
+glm::vec2 get_collision_normal(int index);

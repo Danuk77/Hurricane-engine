@@ -32,13 +32,12 @@ int main() {
 void game_loop() {
   GLFWwindow *window = create_window();
   InputReader reader;
-  // TwoBoxes scene;
+  TwoBoxes scene;
   // TwoCircles scene;
-  BoxAndCircle scene;
+  // BoxAndCircle scene;
 
   // TODO: Move into separate frame rate tracker module
-  // auto start_time = std::chrono::high_resolution_clock::now();
-  int frames = 0;
+  // int frames = 0;
 
   while (!glfwWindowShouldClose(window)) {
     scene.render();

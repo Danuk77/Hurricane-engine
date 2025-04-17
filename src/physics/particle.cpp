@@ -23,5 +23,9 @@ void Particle::execute_physics_tick(float duration_from_last_tick) {
   velocity = (velocity * glm::pow(damping_factor, duration_from_last_tick)) +
              (acceleration * duration_from_last_tick);
 
+  // if(accumulated_force == glm::vec2(0) && velocity != glm::vec2(0)){
+  //   velocity = glm::vec2(velocity.x/2, velocity.y/2);
+  // }
+
   clear_accumulated_force();
 }

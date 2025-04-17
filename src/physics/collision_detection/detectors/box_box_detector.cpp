@@ -1,8 +1,12 @@
 #include <algorithm>
 #include <iostream>
+#include <stdexcept>
+#include <tuple>
+#include <vector>
 
 #include "glm/common.hpp"
 #include "glm/ext/vector_float2.hpp"
+#include "physics/collision.hpp"
 #include "physics/collision_detection/detectors/box_box_detector.hpp"
 
 std::optional<Collision> evaluate_collision(const BoxCollider *collider_one,
@@ -15,12 +19,8 @@ std::optional<Collision> evaluate_collision(const BoxCollider *collider_one,
   if (!is_colliding(&collider_one_coordinates, &collider_two_coordinates)) {
     return std::nullopt;
   }
-
-  glm::vec2 collision_normal =
-      calculate_collision_normal(collider_one, collider_two);
-  float collision_depth = calculate_collision_depth(
-      &collider_two_coordinates, &collider_two_coordinates, collision_normal);
-  return Collision(collision_depth, collision_normal);
+  return generate_collision(&collider_one_coordinates,
+                            &collider_two_coordinates);
 }
 
 BoxColliderEdgeCoordinates
@@ -52,29 +52,59 @@ bool is_colliding(const BoxColliderEdgeCoordinates *collider_one_coordinates,
   return is_colliding_vertically && is_colliding_horizontally;
 }
 
-glm::vec2 calculate_collision_normal(const BoxCollider *collider_one,
-                                     const BoxCollider *collider_two) {
-  return glm::normalize(collider_two->transform->position -
-                        collider_one->transform->position);
+Collision
+generate_collision(BoxColliderEdgeCoordinates *collider_one_coordinates,
+                   BoxColliderEdgeCoordinates *collider_two_coordinates) {
+  float right_overlap = glm::abs(collider_one_coordinates->right_edge_x -
+                                 collider_two_coordinates->left_edge_x);
+  float left_overlap = glm::abs(collider_one_coordinates->left_edge_x -
+                                collider_two_coordinates->right_edge_x);
+  float upper_overlap = glm::abs(collider_one_coordinates->upper_edge_y -
+                                 collider_two_coordinates->lower_edge_y);
+  float lower_overlap = glm::abs(collider_one_coordinates->lower_edge_y -
+                                 collider_two_coordinates->upper_edge_y);
+
+  float overlap_array[4] = {right_overlap, left_overlap, upper_overlap,
+                            lower_overlap};
+
+  std::tuple<int, float> minimum_overlap_values = arg_min(overlap_array, 4);
+
+  glm::vec2 collision_normal =
+      get_collision_normal(std::get<0>(minimum_overlap_values));
+  float collision_depth = std::get<1>(minimum_overlap_values);
+
+  return Collision(collision_depth, collision_normal);
 }
 
-float calculate_collision_depth(
-    const BoxColliderEdgeCoordinates *collider_one_coordinates,
-    const BoxColliderEdgeCoordinates *collider_two_coordinates,
-    const glm::vec2 collision_normal) {
-  float horizontal_overlap =
-      glm::min(glm::abs(collider_one_coordinates->right_edge_x -
-                        collider_two_coordinates->left_edge_x),
-               glm::abs(collider_one_coordinates->left_edge_x -
-                        collider_two_coordinates->right_edge_x));
-  float vertical_overlap =
-      glm::min(glm::abs(collider_one_coordinates->upper_edge_y -
-                        collider_two_coordinates->lower_edge_y),
-               glm::abs(collider_one_coordinates->lower_edge_y -
-                        collider_two_coordinates->upper_edge_y));
+std::tuple<int, float> arg_min(float array[], int array_size) {
+  float minimum_value = array[0];
+  int minimum_value_index = 0;
 
-  float collision_depth_in_normal_direction = glm::dot(
-      glm::vec2(horizontal_overlap, vertical_overlap), collision_normal);
+  if (array_size <= 0) {
+    throw std::runtime_error("Array cannot be empty");
+  }
 
-  return collision_depth_in_normal_direction;
+  for (unsigned int i = 0; i < array_size; i++) {
+    if (array[i] < minimum_value) {
+      minimum_value = array[i];
+      minimum_value_index = i;
+    }
+  }
+
+  return std::make_tuple(minimum_value_index, minimum_value);
+}
+
+glm::vec2 get_collision_normal(int index) {
+  switch (index) {
+  case 0:
+    return glm::vec2(1, 0);
+  case 1:
+    return glm::vec2(-1, 0);
+  case 2:
+    return glm::vec2(0, -1);
+  case 3:
+    return glm::vec2(0, 1);
+  default:
+    throw std::runtime_error("Invalid index for collision normal");
+  }
 }

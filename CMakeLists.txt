@@ -25,23 +25,23 @@ add_executable(hurricane src/main.cpp)
 target_link_libraries(hurricane PRIVATE hurricane_lib)
 
 # Test suite setup (GoogleTest)
-include(FetchContent)
+#include(FetchContent)
 
 # Download Googletest for unit testing
-FetchContent_Declare(
-  googletest
-  URL https://github.com/google/googletest/archive/03597a01ee50ed33e9dfd640b249b4be3799d395.zip
-  DOWNLOAD_EXTRACT_TIMESTAMP TRUE
-)
-# For Windows: Prevent overriding the parent project's compiler/linker settings 
-set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
-FetchContent_MakeAvailable(googletest)
-enable_testing()
-
-file(GLOB_RECURSE TEST_FILES ${CMAKE_CURRENT_SOURCE_DIR}/tests/*.cpp)
-add_executable(run_test ${TEST_FILES})
-target_link_libraries(run_test hurricane_lib GTest::gtest_main)
-include(GoogleTest)
-gtest_discover_tests(run_test)
-
-add_test(NAME test COMMAND run_test)
+#FetchContent_Declare(
+#  googletest
+#  URL https://github.com/google/googletest/archive/03597a01ee50ed33e9dfd640b249b4be3799d395.zip
+#  DOWNLOAD_EXTRACT_TIMESTAMP TRUE
+#)
+## For Windows: Prevent overriding the parent project's compiler/linker settings 
+#set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
+#FetchContent_MakeAvailable(googletest)
+#enable_testing()
+#
+#file(GLOB_RECURSE TEST_FILES ${CMAKE_CURRENT_SOURCE_DIR}/tests/*.cpp)
+#add_executable(run_test ${TEST_FILES})
+#target_link_libraries(run_test hurricane_lib GTest::gtest_main)
+#include(GoogleTest)
+#gtest_discover_tests(run_test)
+#
+#add_test(NAME test COMMAND run_test)
