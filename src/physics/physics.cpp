@@ -42,9 +42,6 @@ std::vector<Collision> generate_contacts(const CollisionDetector &detector,
 
       if (collision) {
         collisions.push_back(collision.value());
-        // std::cout << collision->collision_normal.x << " " <<
-        // collision->collision_normal.y << std::endl; std::cout <<
-        // collision->collision_depth << std::endl;
         scene->game_objects.at(0)->sprite_color = glm::vec3(1, 0, 0);
         scene->game_objects.at(1)->sprite_color = glm::vec3(1, 0, 0);
       } else {

@@ -32,6 +32,6 @@ public:
   std::optional<Collision>
   accept_detector(const CollisionDetector &detector,
                   const CircleCollider &circle_collider) const override {
-    return detector.detect(*this, circle_collider);
+    return detector.detect(circle_collider, *this);
   }
 };
