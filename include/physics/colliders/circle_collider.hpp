@@ -1,18 +1,21 @@
 #pragma once
 #include <algorithm>
+#include <array>
 #include <memory>
 #include <utility>
 
 #include "./collider.hpp"
 #include "./transform.hpp"
+#include "physics/particle.hpp"
 
 class CircleCollider : public Collider {
 public:
   float radius;
   std::shared_ptr<Transform> transform;
 
-  CircleCollider(float radius, std::shared_ptr<Transform> transform)
-      : radius(radius), transform(std::move(transform)) {}
+  CircleCollider(float radius, std::shared_ptr<Transform> transform,
+                 std::shared_ptr<Particle> particle)
+      : radius(radius), transform(std::move(transform)), Collider(particle) {}
 
   std::optional<Collision>
   accept_detector(const CollisionDetector &detector,

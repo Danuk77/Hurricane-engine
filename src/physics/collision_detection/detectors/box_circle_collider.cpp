@@ -24,7 +24,8 @@ evaluate_collision(const BoxCollider *box_collider,
 
   std::cout << collision_depth << std::endl;
 
-  return Collision(collision_depth, collision_normal);
+  return Collision(collision_depth, collision_normal,
+                   {box_collider->particle, circle_collider->particle});
 }
 
 glm::vec2 calculate_closest_position_to_circle_on_box(

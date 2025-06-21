@@ -23,7 +23,7 @@ glm::mat4 Box::projection_matrix =
 
 Box::Box(std::string box_name, std::shared_ptr<Transform> transform,
          std::unique_ptr<BoxCollider> collider,
-         std::unique_ptr<Particle> particle)
+         std::shared_ptr<Particle> particle)
     : transform(std::move(transform)), collider(std::move(collider)),
       particle(std::move(particle)) {
   set_vertex_data();

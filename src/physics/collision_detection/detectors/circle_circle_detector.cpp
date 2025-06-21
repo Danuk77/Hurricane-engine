@@ -14,7 +14,8 @@ evaluate_collision(const CircleCollider *collider_one,
       calculate_collision_normal(collider_one, collider_two);
   float collision_depth = calculate_collision_depth(collision_information);
   std::cout << collision_depth << std::endl;
-  return Collision(collision_depth, collision_normal);
+  return Collision(collision_depth, collision_normal,
+                   {collider_one->particle, collider_two->particle});
 }
 
 CircleCollisionPreprocessInformation

@@ -1,5 +1,6 @@
 #pragma once
 #include <algorithm>
+#include <array>
 #include <memory>
 #include <optional>
 #include <utility>
@@ -15,9 +16,10 @@ public:
   std::shared_ptr<Transform> transform;
 
   BoxCollider(float half_width, float half_height,
-              std::shared_ptr<Transform> transform)
+              std::shared_ptr<Transform> transform,
+              std::shared_ptr<Particle> particle)
       : half_width(half_width), half_height(half_height),
-        transform(std::move(transform)) {}
+        transform(std::move(transform)), Collider(particle) {}
 
   std::optional<Collision>
   accept_detector(const CollisionDetector &detector,

@@ -1,4 +1,5 @@
 #include <algorithm>
+#include <array>
 #include <iostream>
 #include <stdexcept>
 #include <tuple>
@@ -20,7 +21,8 @@ std::optional<Collision> evaluate_collision(const BoxCollider *collider_one,
     return std::nullopt;
   }
   return generate_collision(&collider_one_coordinates,
-                            &collider_two_coordinates);
+                            &collider_two_coordinates,
+                            {collider_one->particle, collider_two->particle});
 }
 
 BoxColliderEdgeCoordinates
@@ -54,7 +56,8 @@ bool is_colliding(const BoxColliderEdgeCoordinates *collider_one_coordinates,
 
 Collision
 generate_collision(BoxColliderEdgeCoordinates *collider_one_coordinates,
-                   BoxColliderEdgeCoordinates *collider_two_coordinates) {
+                   BoxColliderEdgeCoordinates *collider_two_coordinates,
+                   std::array<std::shared_ptr<Particle>, 2> particles) {
   float right_overlap = glm::abs(collider_one_coordinates->right_edge_x -
                                  collider_two_coordinates->left_edge_x);
   float left_overlap = glm::abs(collider_one_coordinates->left_edge_x -
@@ -73,7 +76,7 @@ generate_collision(BoxColliderEdgeCoordinates *collider_one_coordinates,
       get_collision_normal(std::get<0>(minimum_overlap_values));
   float collision_depth = std::get<1>(minimum_overlap_values);
 
-  return Collision(collision_depth, collision_normal);
+  return Collision(collision_depth, collision_normal, particles);
 }
 
 std::tuple<int, float> arg_min(float array[], int array_size) {
