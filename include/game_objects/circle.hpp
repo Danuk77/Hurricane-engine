@@ -9,19 +9,20 @@
 #include "./transform.hpp"
 #include "game_objects/gameobject.hpp"
 #include "input/input.hpp"
-#include "physics/colliders/box_collider.hpp"
+#include "physics/colliders/circle_collider.hpp"
 #include "physics/particle.hpp"
 #include "shaders/shader.hpp"
 
 Shader load_shaders();
 
-class Box : public GameObject {
+class Circle : public GameObject {
 public:
   std::string box_name;
+  float radius;
 
-  Box(std::string box_name, std::shared_ptr<Transform> Transform,
-      std::unique_ptr<BoxCollider> collider,
-      std::unique_ptr<Particle> particle);
+  Circle(std::string circle_name, std::shared_ptr<Transform> Transform,
+         std::unique_ptr<CircleCollider> collider, float radius,
+         std::unique_ptr<Particle> particle);
 
   void render() override;
   void handle_user_input(std::vector<Input> user_input) override;
@@ -30,12 +31,12 @@ public:
   }
   Particle *get_particle() override { return particle.get(); };
 
-  BoxCollider &get_collider() override;
+  CircleCollider &get_collider() override;
 
 private:
   // Game object specific fields
   std::shared_ptr<Transform> transform;
-  std::unique_ptr<BoxCollider> collider;
+  std::unique_ptr<CircleCollider> collider;
   std::unique_ptr<Particle> particle;
   Shader shader_program;
   float movement_velocity = 100.0f;
@@ -48,7 +49,6 @@ private:
   void load_shaders();
   void set_vertex_data();
   void initialise_model_matrix() override;
-  void update_model_matrix();
 
   void move(Input direction);
   void move_left(float movement_force);

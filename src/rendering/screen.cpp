@@ -1,5 +1,6 @@
-#include "rendering/screen.hpp"
 #include <iostream>
+
+#include "rendering/screen.hpp"
 
 void configure_opengl_version() {
   glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
@@ -43,5 +44,11 @@ GLFWwindow *create_window() {
   // Register the callback function 'freambuffer_size_callback' to handle window
   // resizing
   glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
+
+  // Enable transparent rendering
+  glDisable(GL_DEPTH_TEST);
+  glEnable(GL_BLEND);
+  glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
   return window;
 }

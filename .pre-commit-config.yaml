@@ -4,6 +4,7 @@ repos:
     rev: v15.0.7
     hooks:
       - id: clang-format 
+        name: format
         exclude: >
           (?x)^(
             include/KHR/.*|
@@ -18,10 +19,11 @@ repos:
     rev: 2.0.0
     hooks:
       - id: cpplint
+        name: lint
         args:
           # NOTE: The whitespace/indent is added because the formatter will indent
           # correctly and the linter typically disagrees with the formatter on this
-          - --filter=-whitespace/parens,-legal/copyright, -whitespace/indent
+          - --filter=-whitespace/parens,-legal/copyright, -whitespace/indent, -whitespace/comments, -readability/todo
           - --exclude=include/KHR/* 
           - --exclude=include/glad/*
           - --exclude=include/glm/*

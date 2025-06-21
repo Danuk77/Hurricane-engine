@@ -3,6 +3,7 @@
 #include <iostream>
 #include <sstream>
 #include <stdexcept>
+#include <string>
 
 std::string read_shader_file(const char *shader_path) {
   std::ifstream shader_file_buffer;

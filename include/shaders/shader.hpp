@@ -20,6 +20,8 @@ public:
   void set_matrix_4(std::string matrix_name, glm::mat4 matrix) const;
   void set_vector_3_float(std::string vector_name, glm::vec3 vector) const;
   void set_int(std::string integer_name, unsigned int integer) const;
+  void set_float(std::string float_name, float float_value) const;
+  void set_vec_2_float(std::string vector_name, glm::vec2 vector) const;
 
   void use() const;
 
