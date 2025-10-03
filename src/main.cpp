@@ -19,13 +19,29 @@
 #include "rendering/scenes/two_circles.hpp"
 #include "rendering/screen.hpp"
 
+// TODO: Get rid of
+#include "data_structures/priority_queue.hpp"
+
 void game_loop();
 void clear_screen();
 void handle_user_input(const Scene &scene, GLFWwindow *window,
                        InputReader *reader);
 
 int main() {
-  game_loop();
+  PriorityQueue<int> queue = PriorityQueue<int>();
+  queue.insert(std::make_unique<int>(5));
+  queue.insert(std::make_unique<int>(6));
+  queue.insert(std::make_unique<int>(4));
+  queue.insert(std::make_unique<int>(1));
+  queue.insert(std::make_unique<int>(8));
+  queue.insert(std::make_unique<int>(2));
+  std::cout << *queue.pop() << std::endl;
+  std::cout << *queue.pop() << std::endl;
+  std::cout << *queue.pop() << std::endl;
+  std::cout << *queue.pop() << std::endl;
+  std::cout << *queue.pop() << std::endl;
+  std::cout << *queue.pop() << std::endl;
+  //game_loop();
   return 0;
 }
 

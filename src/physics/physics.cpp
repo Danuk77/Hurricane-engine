@@ -17,6 +17,11 @@ PrimitiveDetector detector;
 void run_physics_loop(Scene *scene) {
   apply_forces(scene);
   std::vector<Collision> collisions = generate_contacts(detector, scene);
+  // TODO:
+  // 1. Order the collisions based on their separating velocity (For velocity resolution)
+  // 2. Order the collisions based on their penetration (For interpenetration resolution)
+  // 3. Resolve velocity
+  // 4. Resolve interpenetration
 }
 
 void apply_forces(Scene *scene) {
