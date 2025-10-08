@@ -1,6 +1,4 @@
 #pragma once
-#include <algorithm>
-#include <array>
 #include <memory>
 #include <utility>
 
@@ -17,18 +15,18 @@ public:
                  std::shared_ptr<Particle> particle)
       : radius(radius), transform(std::move(transform)), Collider(particle) {}
 
-  std::optional<Collision>
-  accept_detector(const CollisionDetector &detector,
+  std::optional<Contact>
+  accept_detector(const ContactDetector &detector,
                   const Collider &collider) const override {
     return collider.accept_detector(detector, *this);
   }
-  std::optional<Collision>
-  accept_detector(const CollisionDetector &detector,
+  std::optional<Contact>
+  accept_detector(const ContactDetector &detector,
                   const BoxCollider &box_collider) const override {
     return detector.detect(box_collider, *this);
   }
-  std::optional<Collision>
-  accept_detector(const CollisionDetector &detector,
+  std::optional<Contact>
+  accept_detector(const ContactDetector &detector,
                   const CircleCollider &circle_collider) const override {
     return detector.detect(circle_collider, *this);
   }

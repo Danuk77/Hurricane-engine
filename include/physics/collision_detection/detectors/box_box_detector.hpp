@@ -4,7 +4,7 @@
 #include <tuple>
 
 #include "../../colliders/box_collider.hpp"
-#include "physics/collision.hpp"
+#include "physics/contact.hpp"
 
 struct BoxColliderEdgeCoordinates {
   float right_edge_x;
@@ -13,13 +13,13 @@ struct BoxColliderEdgeCoordinates {
   float lower_edge_y;
 };
 
-std::optional<Collision> evaluate_collision(const BoxCollider *collider_one,
+std::optional<Contact> evaluate_collision(const BoxCollider *collider_one,
                                             const BoxCollider *collider_two);
 BoxColliderEdgeCoordinates
 generate_box_collider_coordinates(const BoxCollider *collider);
 bool is_colliding(const BoxColliderEdgeCoordinates *collider_one_coordinates,
                   const BoxColliderEdgeCoordinates *collider_two_coordinates);
-Collision
+Contact
 generate_collision(BoxColliderEdgeCoordinates *collider_one_coordinates,
                    BoxColliderEdgeCoordinates *collider_two_coordinates,
                    std::array<std::shared_ptr<Particle>, 2> particles);

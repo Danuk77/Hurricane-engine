@@ -1,8 +1,5 @@
-#include <algorithm>
-#include <iostream>
-
-#include "glm/exponential.hpp"
 #include "physics/particle.hpp"
+#include "glm/exponential.hpp"
 
 Particle::Particle(std::shared_ptr<Transform> transform, float inverse_mass)
     : transform(transform), inverse_mass(inverse_mass) {
@@ -29,3 +26,5 @@ void Particle::execute_physics_tick(float duration_from_last_tick) {
 
   clear_accumulated_force();
 }
+
+glm::vec2 Particle::get_velocity() { return velocity; }

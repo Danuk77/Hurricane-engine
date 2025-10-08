@@ -9,6 +9,7 @@ public:
   Particle(std::shared_ptr<Transform> transform, float mass);
   void apply_force(glm::vec2 force);
   void execute_physics_tick(float duration_from_last_tick);
+  glm::vec2 get_velocity();
 
 private:
   std::shared_ptr<Transform> transform;

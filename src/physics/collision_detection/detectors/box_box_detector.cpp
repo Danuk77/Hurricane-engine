@@ -1,16 +1,13 @@
-#include <algorithm>
 #include <array>
-#include <iostream>
 #include <stdexcept>
 #include <tuple>
-#include <vector>
 
 #include "glm/common.hpp"
 #include "glm/ext/vector_float2.hpp"
-#include "physics/collision.hpp"
+#include "physics/contact.hpp"
 #include "physics/collision_detection/detectors/box_box_detector.hpp"
 
-std::optional<Collision> evaluate_collision(const BoxCollider *collider_one,
+std::optional<Contact> evaluate_collision(const BoxCollider *collider_one,
                                             const BoxCollider *collider_two) {
   BoxColliderEdgeCoordinates collider_one_coordinates =
       generate_box_collider_coordinates(collider_one);
@@ -54,7 +51,7 @@ bool is_colliding(const BoxColliderEdgeCoordinates *collider_one_coordinates,
   return is_colliding_vertically && is_colliding_horizontally;
 }
 
-Collision
+Contact
 generate_collision(BoxColliderEdgeCoordinates *collider_one_coordinates,
                    BoxColliderEdgeCoordinates *collider_two_coordinates,
                    std::array<std::shared_ptr<Particle>, 2> particles) {
@@ -76,7 +73,9 @@ generate_collision(BoxColliderEdgeCoordinates *collider_one_coordinates,
       get_collision_normal(std::get<0>(minimum_overlap_values));
   float collision_depth = std::get<1>(minimum_overlap_values);
 
-  return Collision(collision_depth, collision_normal, particles);
+  glm::vec2 relative_velocity = particles[0]->get_velocity() - particles[1]->get_velocity();
+  float separating_velocity = glm::dot(relative_velocity, collision_normal);
+  return Contact(collision_depth, collision_normal, particles, separating_velocity);
 }
 
 std::tuple<int, float> arg_min(float array[], int array_size) {

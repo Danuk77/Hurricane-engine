@@ -3,11 +3,12 @@
 #include <vector>
 
 #include "game_objects/gameobject.hpp"
-#include "physics/collision.hpp"
+#include "physics/contact.hpp"
 #include "physics/collision_detection/detector.hpp"
 #include "physics/collision_detection/detectors/primitive_detector.hpp"
 #include "physics/physics.hpp"
 #include "rendering/scene.hpp"
+#include "data_structures/priority_queue.hpp"
 
 PrimitiveDetector detector;
 
@@ -16,10 +17,10 @@ PrimitiveDetector detector;
 // run after every x milliseconds)
 void run_physics_loop(Scene *scene) {
   apply_forces(scene);
-  std::vector<Collision> collisions = generate_contacts(detector, scene);
+  std::vector<Contact> contacts = generate_contacts(detector, scene);
   // TODO:
-  // 1. Order the collisions based on their separating velocity (For velocity resolution)
-  // 2. Order the collisions based on their penetration (For interpenetration resolution)
+  // 1. Order the contacts based on their separating velocity (For velocity resolution)
+  // 2. Order the contacts based on their penetration (For interpenetration resolution)
   // 3. Resolve velocity
   // 4. Resolve interpenetration
 }
@@ -34,19 +35,20 @@ void apply_forces(Scene *scene) {
   }
 }
 
-std::vector<Collision> generate_contacts(const CollisionDetector &detector,
+// NOTE: This may be able to be refactored using cpp visitor
+std::vector<Contact> generate_contacts(const ContactDetector &detector,
                                          Scene *scene) {
-  std::vector<Collision> collisions;
+  std::vector<Contact> contacts;
   for (unsigned int i = 0; i < scene->game_objects.size(); i++) {
     for (unsigned int j = i + 1; j < scene->game_objects.size(); j++) {
       Collider &collider_one = scene->game_objects.at(i)->get_collider();
       Collider &collider_two = scene->game_objects.at(j)->get_collider();
 
-      std::optional<Collision> collision =
+      std::optional<Contact> collision =
           collider_one.accept_detector(detector, collider_two);
 
       if (collision) {
-        collisions.push_back(collision.value());
+        contacts.push_back(collision.value());
         scene->game_objects.at(0)->sprite_color = glm::vec3(1, 0, 0);
         scene->game_objects.at(1)->sprite_color = glm::vec3(1, 0, 0);
       } else {
@@ -55,5 +57,5 @@ std::vector<Collision> generate_contacts(const CollisionDetector &detector,
       }
     }
   }
-  return collisions;
+  return contacts;
 }

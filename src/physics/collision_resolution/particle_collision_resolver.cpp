@@ -1,14 +1,14 @@
 #include <vector>
 
-#include "physics/collision_resolution/particle_collision_resolver.hpp"
+#include "physics/collision_resolution/particle_contact_resolver.hpp"
 
-void ParticleCollisionResolver::resolve_collisions(
-    std::vector<Collision> collisions, int max_iterations) {
-  resolve_velocity(collisions, max_iterations);
-  resolve_interpenetration(collisions, max_iterations);
+void ParticleContactResolver::resolve_contacts(
+    std::vector<Contact> contacts, int max_iterations) {
+  resolve_velocity(contacts, max_iterations);
+  resolve_interpenetration(contacts, max_iterations);
 }
 
-void ParticleCollisionResolver::resolve_velocity(
-    std::vector<Collision> collisions, int max_iterations) {}
-void ParticleCollisionResolver::resolve_interpenetration(
-    std::vector<Collision> collisions, int max_iterations) {}
+void ParticleContactResolver::resolve_velocity(
+    std::vector<Contact> contacts, int max_iterations) {}
+void ParticleContactResolver::resolve_interpenetration(
+    std::vector<Contact> contacts, int max_iterations) {}

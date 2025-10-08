@@ -1,18 +1,18 @@
 #pragma once
 #include "physics/collision_detection/detector.hpp"
 
-struct PrimitiveDetector : public CollisionDetector {
+struct PrimitiveDetector : public ContactDetector {
 public:
-  std::optional<Collision>
+  std::optional<Contact>
   detect(const BoxCollider &collider_one,
          const BoxCollider &collider_two) const override;
-  std::optional<Collision>
+  std::optional<Contact>
   detect(const CircleCollider &collider_one,
          const CircleCollider &collider_two) const override;
-  std::optional<Collision>
+  std::optional<Contact>
   detect(const BoxCollider &collider_one,
          const CircleCollider &collider_two) const override;
-  std::optional<Collision>
+  std::optional<Contact>
   detect(const CircleCollider &collider_one,
          const BoxCollider &collider_two) const override;
 };
