@@ -13,7 +13,7 @@ struct BoxColliderEdgeCoordinates {
   float lower_edge_y;
 };
 
-std::optional<Contact> evaluate_collision(const BoxCollider *collider_one,
+std::optional<std::unique_ptr<Contact>> evaluate_collision(const BoxCollider *collider_one,
                                             const BoxCollider *collider_two);
 BoxColliderEdgeCoordinates
 generate_box_collider_coordinates(const BoxCollider *collider);

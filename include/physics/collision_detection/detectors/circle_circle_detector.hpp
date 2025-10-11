@@ -9,7 +9,7 @@ struct CircleContactPreprocessInformation {
   float sum_of_radii;
 };
 
-std::optional<Contact> evaluate_collision(const CircleCollider *collider_one,
+std::optional<std::unique_ptr<Contact>> evaluate_collision(const CircleCollider *collider_one,
                                             const CircleCollider *collider_two);
 CircleContactPreprocessInformation
 pre_process_circle_collision(const CircleCollider *collider_one,

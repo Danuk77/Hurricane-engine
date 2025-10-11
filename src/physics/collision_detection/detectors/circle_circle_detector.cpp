@@ -1,7 +1,8 @@
 #include "physics/collision_detection/detectors/circle_circle_detector.hpp"
 #include <iostream>
+#include <memory>
 
-std::optional<Contact>
+std::optional<std::unique_ptr<Contact>>
 evaluate_collision(const CircleCollider *collider_one,
                    const CircleCollider *collider_two) {
   CircleContactPreprocessInformation collision_information =
@@ -16,8 +17,10 @@ evaluate_collision(const CircleCollider *collider_one,
   glm::vec2 relative_velocity = collider_one->particle->get_velocity() -
                                 collider_two->particle->get_velocity();
   float separating_velocity = glm::dot(relative_velocity, collision_normal);
-  return Contact{collision_depth, collision_normal,
-                   {collider_one->particle, collider_two->particle}};
+  return std::make_unique<Contact>(
+      Contact{collision_depth,
+              collision_normal,
+              {collider_one->particle, collider_two->particle}});
 }
 
 CircleContactPreprocessInformation

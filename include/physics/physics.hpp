@@ -7,6 +7,6 @@
 #include "rendering/scene.hpp"
 
 void run_physics_loop(Scene *scene);
-std::vector<Contact> generate_contacts(const ContactDetector &detector,
+std::vector<std::unique_ptr<Contact>> generate_contacts(const ContactDetector &detector,
                                          Scene *scene);
 void apply_forces(Scene *scene);
