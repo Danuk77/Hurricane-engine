@@ -2,13 +2,13 @@
 #include <optional>
 #include <vector>
 
-#include "game_objects/gameobject.hpp"
 #include "physics/contact.hpp"
-#include "physics/collision_detection/detector.hpp"
-#include "physics/collision_detection/detectors/primitive_detector.hpp"
 #include "physics/physics.hpp"
 #include "rendering/scene.hpp"
-#include "data_structures/priority_queue.hpp"
+#include "game_objects/gameobject.hpp"
+#include "physics/collision_detection/detector.hpp"
+#include "physics/collision_detection/detectors/primitive_detector.hpp"
+#include "physics/collision_resolution/contact_store/penetration_based_collision_store.hpp"
 
 PrimitiveDetector detector;
 
@@ -44,11 +44,11 @@ std::vector<Contact> generate_contacts(const ContactDetector &detector,
       Collider &collider_one = scene->game_objects.at(i)->get_collider();
       Collider &collider_two = scene->game_objects.at(j)->get_collider();
 
-      std::optional<Contact> collision =
+      std::optional<Contact> contact =
           collider_one.accept_detector(detector, collider_two);
 
-      if (collision) {
-        contacts.push_back(collision.value());
+      if (contact) {
+        contacts.push_back(contact.value());
         scene->game_objects.at(0)->sprite_color = glm::vec3(1, 0, 0);
         scene->game_objects.at(1)->sprite_color = glm::vec3(1, 0, 0);
       } else {
