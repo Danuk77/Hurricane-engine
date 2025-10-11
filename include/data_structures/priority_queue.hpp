@@ -2,10 +2,10 @@
 #include <vector>
 template<typename T>
 class PriorityQueue {
-  std::vector<std::unique_ptr<T>> items;
+  std::vector<T> items;
 public:
-  void insert(std::unique_ptr<T> item_to_insert);
-  std::unique_ptr<T> pop();
+  void insert(T item_to_insert);
+  T pop();
   void print();
 private:
   void _bubble_up();

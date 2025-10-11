@@ -1,15 +1,17 @@
 #pragma once
 
 #include "physics/collision_resolution/resolver.hpp"
+#include <memory>
 
-class ParticleContactResolver : public ContactResolver {
+class ParticleContactResolver : public ContactResolver
+{
 public:
-  void resolve_contacts(std::vector<Contact> contacts,
-                          int max_iterations) override;
+  void resolve_contacts(const std::vector<std::unique_ptr<Contact>> &contacts,
+                        int max_iterations) override;
 
 private:
-  void resolve_velocity(std::vector<Contact> contacts,
+  void resolve_velocity(const std::vector<std::unique_ptr<Contact>> &contacts,
                         int max_iterations) override;
-  void resolve_interpenetration(std::vector<Contact> contacts,
+  void resolve_interpenetration(const std::vector<std::unique_ptr<Contact>> &contacts,
                                 int max_iterations) override;
 };

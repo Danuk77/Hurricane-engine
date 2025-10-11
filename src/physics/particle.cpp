@@ -26,8 +26,7 @@ Particle::clear_accumulated_force()
 void
 Particle::execute_physics_tick(float duration_from_last_tick)
 {
-  transform->position =
-    transform->position + (velocity * duration_from_last_tick);
+  transform->position = transform->position + (velocity * duration_from_last_tick);
   acceleration = inverse_mass * accumulated_force;
   velocity = (velocity * glm::pow(damping_factor, duration_from_last_tick)) +
              (acceleration * duration_from_last_tick);

@@ -15,9 +15,8 @@
 #include "physics/physics.hpp"
 #include "rendering/scene.hpp"
 #include "rendering/scenes/box_and_circle.hpp"
-#include "rendering/scenes/two_boxes.hpp"
-#include "rendering/scenes/two_circles.hpp"
 #include "rendering/screen.hpp"
+#include "data_structures/priority_queue.hpp"
 
 void game_loop();
 void clear_screen();
@@ -32,12 +31,7 @@ int main() {
 void game_loop() {
   GLFWwindow *window = create_window();
   InputReader reader;
-  // TwoBoxes scene;
-  // TwoCircles scene;
   BoxAndCircle scene;
-
-  // TODO: Move into separate frame rate tracker module
-  // int frames = 0;
 
   while (!glfwWindowShouldClose(window)) {
     scene.render();
@@ -49,17 +43,6 @@ void game_loop() {
     glfwSwapBuffers(window);
     clear_screen();
     glfwPollEvents();
-
-    // auto end_time = std::chrono::high_resolution_clock::now();
-    // std::chrono::duration<float> duration = end_time - start_time;
-    // frames++;
-
-    // if (duration.count() > 1) {
-    //   start_time = std::chrono::high_resolution_clock::now();
-    //   //std::cout << frames << std::endl;
-
-    //  frames = 0;
-    //}
   }
 }
 

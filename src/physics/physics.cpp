@@ -8,20 +8,21 @@
 #include "game_objects/gameobject.hpp"
 #include "physics/collision_detection/detector.hpp"
 #include "physics/collision_detection/detectors/primitive_detector.hpp"
+#include "physics/collision_resolution/particle_contact_resolver.hpp"
+#include "physics/collision_resolution/resolver.hpp"
 #include "physics/contact.hpp"
 #include "rendering/scene.hpp"
 
 PrimitiveDetector detector;
+ParticleContactResolver contact_resolver;
 
-// TODO: Add coarce collision detection
-// NOTE: We may want to have the physics cycles run at a constant rate (Have it
-// run after every x milliseconds)
 void
 run_physics_loop(Scene* scene)
 {
   apply_forces(scene);
   std::vector<std::unique_ptr<Contact>> contacts =
     generate_contacts(detector, scene);
+  //contact_resolver.resolve_contacts(contacts, 1);
 }
 
 void
