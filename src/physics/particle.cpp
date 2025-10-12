@@ -1,6 +1,7 @@
 #include <iostream>
 #include "physics/particle.hpp"
 #include "glm/exponential.hpp"
+#include "glm/fwd.hpp"
 
 Particle::Particle(std::shared_ptr<Transform> transform, float inverse_mass)
   : transform(transform)
@@ -43,4 +44,9 @@ Particle::get_velocity()
 void
 Particle::apply_impulse(glm::vec2 impulse){
   velocity += (impulse * inverse_mass); 
+};
+
+void
+Particle::clear_velocity(){
+  velocity = glm::vec2(0); 
 };

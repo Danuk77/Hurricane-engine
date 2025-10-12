@@ -14,6 +14,7 @@
 PrimitiveDetector detector;
 ParticleContactResolver contact_resolver;
 
+// TODO: Need to reorder this to see if it makes a difference
 void
 run_physics_loop(Scene* scene)
 {

@@ -10,7 +10,6 @@ ParticleContactResolver::resolve_contacts(
   const std::vector<std::unique_ptr<Contact>>& contacts,
   int max_iterations)
 {
-
   resolve_velocity(contacts, max_iterations);
   resolve_interpenetration(contacts, max_iterations);
 }
@@ -112,11 +111,11 @@ ParticleContactResolver::reolve_penetration(InterpenetrationContact contact)
   std::shared_ptr<Particle> particle_two_in_contact =
     (*contact.contact)->particles_in_contact.at(1);
 
-  particle_one_in_contact->transform->position +=
+  particle_one_in_contact->transform->position -=
     (particle_one_in_contact->inverse_mass *
      penetration_per_unit_mass_in_contact_normal);
 
-  particle_two_in_contact->transform->position -=
+  particle_two_in_contact->transform->position +=
     (particle_two_in_contact->inverse_mass *
      penetration_per_unit_mass_in_contact_normal);
 };
