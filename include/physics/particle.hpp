@@ -13,9 +13,9 @@ public:
   void apply_impulse(glm::vec2 impulse);
   void execute_physics_tick(float duration_from_last_tick);
   glm::vec2 get_velocity();
+  std::shared_ptr<Transform> transform;
 
 private:
-  std::shared_ptr<Transform> transform;
 
   glm::vec2 velocity = glm::vec2(0);
   glm::vec2 acceleration = glm::vec2(0);

@@ -42,8 +42,5 @@ Particle::get_velocity()
 
 void
 Particle::apply_impulse(glm::vec2 impulse){
-  std::cout << velocity.x << std::endl;
-  std::cout <<impulse.x << std::endl;
   velocity += (impulse * inverse_mass); 
-  std::cout << velocity.x << std::endl;
 };

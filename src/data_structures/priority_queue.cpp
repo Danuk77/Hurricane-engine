@@ -1,11 +1,12 @@
 #include "data_structures/priority_queue.hpp"
-#include "physics/collision_resolution/contact_variants/separating_velocity_contact.hpp"
+#include "physics/collision_resolution/particle_contact_resolver.hpp"
 #include <algorithm>
 #include <stdexcept>
 #include <utility>
 
 template class PriorityQueue<int>;
 template class PriorityQueue<SeparatingVelocityContact>;
+template class PriorityQueue<InterpenetrationContact>;
 
 template<typename T>
 void
