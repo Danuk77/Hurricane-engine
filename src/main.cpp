@@ -1,3 +1,4 @@
+#include "rendering/scenes/two_boxes.hpp"
 #define GLFW_USE_WIN32
 
 // clang-format off
@@ -31,7 +32,7 @@ int main() {
 void game_loop() {
   GLFWwindow *window = create_window();
   InputReader reader;
-  BoxAndCircle scene;
+  TwoBoxes scene;
 
   while (!glfwWindowShouldClose(window)) {
     scene.render();

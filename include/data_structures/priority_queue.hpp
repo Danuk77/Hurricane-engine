@@ -6,7 +6,8 @@ class PriorityQueue {
 public:
   void insert(T item_to_insert);
   T pop();
-  void print();
+  bool is_empty();
+  //void print();
 private:
   void _bubble_up();
   void _bubble_down();

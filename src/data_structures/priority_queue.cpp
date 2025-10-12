@@ -1,18 +1,32 @@
 #include "data_structures/priority_queue.hpp"
+#include "physics/collision_resolution/contact_variants/separating_velocity_contact.hpp"
 #include <algorithm>
 #include <iostream>
 #include <stdexcept>
 #include <utility>
 
 template class PriorityQueue<int>;
+template class PriorityQueue<SeparatingVelocityContact>;
 
-template <typename T>
-void PriorityQueue<T>::insert(T item_to_insert) {
+template<typename T>
+void
+PriorityQueue<T>::insert(T item_to_insert)
+{
   items.push_back(item_to_insert);
   _bubble_up();
 };
 
-template <typename T> T PriorityQueue<T>::pop() {
+template<typename T>
+bool
+PriorityQueue<T>::is_empty()
+{
+  return items.empty();
+}
+
+template<typename T>
+T
+PriorityQueue<T>::pop()
+{
   if (items.empty()) {
     throw std::runtime_error("The priority queue is empty");
   }
@@ -24,7 +38,10 @@ template <typename T> T PriorityQueue<T>::pop() {
   return _item_to_return;
 }
 
-template <typename T> void PriorityQueue<T>::_bubble_up() {
+template<typename T>
+void
+PriorityQueue<T>::_bubble_up()
+{
   if (items.size() == 1) {
     return;
   }
@@ -41,14 +58,17 @@ template <typename T> void PriorityQueue<T>::_bubble_up() {
   }
 }
 
-template <typename T> void PriorityQueue<T>::_bubble_down() {
+template<typename T>
+void
+PriorityQueue<T>::_bubble_down()
+{
   int _index_of_item_to_bubble_down = 0;
 
   while (!_is_leaf(_index_of_item_to_bubble_down)) {
     int _smallest_child_index =
-        _get_left_child_index(_index_of_item_to_bubble_down);
+      _get_left_child_index(_index_of_item_to_bubble_down);
     int _index_of_right_child =
-        _get_right_child_index(_index_of_item_to_bubble_down);
+      _get_right_child_index(_index_of_item_to_bubble_down);
 
     if (_does_node_exist(_index_of_right_child)) {
       if (items[_index_of_right_child] < items[_smallest_child_index]) {
@@ -56,45 +76,59 @@ template <typename T> void PriorityQueue<T>::_bubble_down() {
       }
     }
 
-    if (items[_index_of_item_to_bubble_down] < items[_smallest_child_index]){
+    if (items[_index_of_item_to_bubble_down] < items[_smallest_child_index]) {
       _smallest_child_index = _index_of_item_to_bubble_down;
     }
 
     if (_smallest_child_index == _index_of_item_to_bubble_down)
       return;
 
-    std::swap(items[_index_of_item_to_bubble_down], items[_smallest_child_index]);
+    std::swap(items[_index_of_item_to_bubble_down],
+              items[_smallest_child_index]);
     _index_of_item_to_bubble_down = _smallest_child_index;
   }
 }
 
-template <typename T> bool PriorityQueue<T>::_is_leaf(int node_index) {
+template<typename T>
+bool
+PriorityQueue<T>::_is_leaf(int node_index)
+{
   return (items.size() < (node_index * 2) + 2);
 }
 
-template <typename T> int PriorityQueue<T>::_get_parent_index(int node_index) {
+template<typename T>
+int
+PriorityQueue<T>::_get_parent_index(int node_index)
+{
   return (node_index - 1) / 2;
 }
 
-template <typename T>
-int PriorityQueue<T>::_get_left_child_index(int node_index) {
+template<typename T>
+int
+PriorityQueue<T>::_get_left_child_index(int node_index)
+{
   return (node_index * 2) + 1;
 }
 
-template <typename T>
-int PriorityQueue<T>::_get_right_child_index(int node_index) {
+template<typename T>
+int
+PriorityQueue<T>::_get_right_child_index(int node_index)
+{
   return (node_index * 2) + 2;
 }
 
-template <typename T> bool PriorityQueue<T>::_does_node_exist(int node_index) {
+template<typename T>
+bool
+PriorityQueue<T>::_does_node_exist(int node_index)
+{
   return (node_index < items.size());
 }
 
-template <typename T> void PriorityQueue<T>::print() {
-  auto iterator = items.begin();
-  for (; iterator < items.end(); iterator++) {
-    std::cout << *iterator;
-  }
-
-  std::cout << std::endl;
-}
+// template <typename T> void PriorityQueue<T>::print() {
+//   auto iterator = items.begin();
+//   for (; iterator < items.end(); iterator++) {
+//     std::cout << *iterator;
+//   }
+//
+//   std::cout << std::endl;
+// }

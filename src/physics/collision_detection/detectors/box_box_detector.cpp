@@ -1,4 +1,5 @@
 #include <array>
+#include <iostream>
 #include <memory>
 #include <stdexcept>
 #include <tuple>
@@ -75,7 +76,7 @@ Contact generate_collision(BoxColliderEdgeCoordinates *collider_one_coordinates,
   float collision_depth = std::get<1>(minimum_overlap_values);
 
   glm::vec2 relative_velocity =
-      particles[0]->get_velocity() - particles[1]->get_velocity();
+      particles[1]->get_velocity() - particles[0]->get_velocity();
   float separating_velocity = glm::dot(relative_velocity, collision_normal);
   return Contact(collision_depth, collision_normal, particles,
                  separating_velocity);
@@ -106,9 +107,9 @@ glm::vec2 get_collision_normal(int index) {
   case 1:
     return glm::vec2(-1, 0);
   case 2:
-    return glm::vec2(0, -1);
-  case 3:
     return glm::vec2(0, 1);
+  case 3:
+    return glm::vec2(0, -1);
   default:
     throw std::runtime_error("Invalid index for collision normal");
   }

@@ -30,11 +30,6 @@ Particle::execute_physics_tick(float duration_from_last_tick)
   acceleration = inverse_mass * accumulated_force;
   velocity = (velocity * glm::pow(damping_factor, duration_from_last_tick)) +
              (acceleration * duration_from_last_tick);
-
-  // if(accumulated_force == glm::vec2(0) && velocity != glm::vec2(0)){
-  //   velocity = glm::vec2(velocity.x/2, velocity.y/2);
-  // }
-
   clear_accumulated_force();
 }
 
@@ -43,3 +38,8 @@ Particle::get_velocity()
 {
   return velocity;
 }
+
+void
+Particle::apply_impulse(glm::vec2 impulse){
+  velocity += impulse; 
+};

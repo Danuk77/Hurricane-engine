@@ -1,6 +1,5 @@
 #include "physics/physics.hpp"
 
-#include <iostream>
 #include <memory>
 #include <optional>
 #include <vector>
@@ -9,7 +8,6 @@
 #include "physics/collision_detection/detector.hpp"
 #include "physics/collision_detection/detectors/primitive_detector.hpp"
 #include "physics/collision_resolution/particle_contact_resolver.hpp"
-#include "physics/collision_resolution/resolver.hpp"
 #include "physics/contact.hpp"
 #include "rendering/scene.hpp"
 
@@ -22,7 +20,7 @@ run_physics_loop(Scene* scene)
   apply_forces(scene);
   std::vector<std::unique_ptr<Contact>> contacts =
     generate_contacts(detector, scene);
-  //contact_resolver.resolve_contacts(contacts, 1);
+  contact_resolver.resolve_contacts(contacts, 1);
 }
 
 void
