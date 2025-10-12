@@ -1,7 +1,6 @@
 #include "data_structures/priority_queue.hpp"
 #include "physics/collision_resolution/contact_variants/separating_velocity_contact.hpp"
 #include <algorithm>
-#include <iostream>
 #include <stdexcept>
 #include <utility>
 
