@@ -21,7 +21,7 @@ public:
 
   Box(std::string box_name, std::shared_ptr<Transform> Transform,
       std::unique_ptr<BoxCollider> collider,
-      std::unique_ptr<Particle> particle);
+      std::shared_ptr<Particle> particle);
 
   void render() override;
   void handle_user_input(std::vector<Input> user_input) override;
@@ -36,7 +36,7 @@ private:
   // Game object specific fields
   std::shared_ptr<Transform> transform;
   std::unique_ptr<BoxCollider> collider;
-  std::unique_ptr<Particle> particle;
+  std::shared_ptr<Particle> particle;
   Shader shader_program;
   float movement_velocity = 100.0f;
 

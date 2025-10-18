@@ -1,3 +1,4 @@
+#include "rendering/scenes/two_boxes.hpp"
 #define GLFW_USE_WIN32
 
 // clang-format off
@@ -15,9 +16,8 @@
 #include "physics/physics.hpp"
 #include "rendering/scene.hpp"
 #include "rendering/scenes/box_and_circle.hpp"
-#include "rendering/scenes/two_boxes.hpp"
-#include "rendering/scenes/two_circles.hpp"
 #include "rendering/screen.hpp"
+#include "data_structures/priority_queue.hpp"
 
 void game_loop();
 void clear_screen();

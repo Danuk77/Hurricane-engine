@@ -1,17 +1,21 @@
 #pragma once
 
+#include <memory>
 #include <vector>
 
-#include "physics/collision.hpp"
+#include "physics/contact.hpp"
 
-class CollisionResolver {
+class ContactResolver
+{
 public:
-  virtual void resolve_collisions(std::vector<Collision> collisions,
-                                  int max_iterations) = 0;
+  virtual void resolve_contacts(const std::vector<std::unique_ptr<Contact>> &contacts,
+                                int max_iterations) = 0;
 
 private:
-  virtual void resolve_velocity(std::vector<Collision> collisions,
-                                int max_iterations) = 0;
-  virtual void resolve_interpenetration(std::vector<Collision> collisions,
-                                        int max_iterations) = 0;
+  virtual void resolve_velocity(
+    const std::vector<std::unique_ptr<Contact>>& contacts,
+    int max_iterations) = 0;
+  virtual void resolve_interpenetration(
+    const std::vector<std::unique_ptr<Contact>>& collisions,
+    int max_iterations) = 0;
 };

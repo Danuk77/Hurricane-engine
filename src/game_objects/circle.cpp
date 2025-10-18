@@ -23,7 +23,7 @@ glm::mat4 Circle::projection_matrix =
 
 Circle::Circle(std::string circle_name, std::shared_ptr<Transform> transform,
                std::unique_ptr<CircleCollider> collider, float radius,
-               std::unique_ptr<Particle> particle)
+               std::shared_ptr<Particle> particle)
     : transform(std::move(transform)), collider(std::move(collider)),
       radius(radius), particle(std::move(particle)) {
   set_vertex_data();

@@ -1,11 +1,11 @@
-#include <iostream>
+#include <memory>
 #include <optional>
 
 #include "glm/common.hpp"
 #include "glm/geometric.hpp"
 #include "physics/collision_detection/detectors/box_circle_detector.hpp"
 
-std::optional<Collision>
+std::optional<std::unique_ptr<Contact>>
 evaluate_collision(const BoxCollider *box_collider,
                    const CircleCollider *circle_collider) {
   glm::vec2 closest_box_point = calculate_closest_position_to_circle_on_box(
@@ -22,9 +22,14 @@ evaluate_collision(const BoxCollider *box_collider,
   glm::vec2 collision_normal =
       circle_collider->transform->position - box_collider->transform->position;
 
-  std::cout << collision_depth << std::endl;
-
-  return Collision(collision_depth, collision_normal);
+  glm::vec2 relative_velocity = box_collider->particle->get_velocity() -
+                                circle_collider->particle->get_velocity();
+  float separating_velocity = glm::dot(relative_velocity, collision_normal);
+  return std::make_unique<Contact>(
+      Contact{collision_depth,
+              collision_normal,
+              {box_collider->particle, circle_collider->particle},
+              separating_velocity});
 }
 
 glm::vec2 calculate_closest_position_to_circle_on_box(
