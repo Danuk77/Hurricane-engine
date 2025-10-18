@@ -29,7 +29,7 @@ evaluate_collision(const BoxCollider *box_collider,
   return std::make_unique<Contact>(
       Contact{collision_depth,
               collision_normal,
-              {circle_collider->particle, box_collider->particle},
+              {box_collider->particle, circle_collider->particle},
               separating_velocity});
 }
 

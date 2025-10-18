@@ -28,15 +28,20 @@ int main() {
   return 0;
 }
 
+// TODO: Fix
+// 1. Box collising on a circle
+
+// TODO: Test
+// 1. Different weights
+// 2. More than 2 objects
+// 3. One object with inifinnite weight (Should not be movable)
+
 void game_loop() {
   GLFWwindow *window = create_window();
   InputReader reader;
   //TwoBoxes scene;
   //TwoCircles scene;
   BoxAndCircle scene;
-
-  // TODO: Move into separate frame rate tracker module
-  // int frames = 0;
 
   while (!glfwWindowShouldClose(window)) {
     scene.render();
