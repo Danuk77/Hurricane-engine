@@ -14,11 +14,7 @@ public:
 private:
   void resolve_velocity(const std::vector<std::unique_ptr<Contact>>& contacts,
                         int max_iterations) override;
-
-  void resolve(SeparatingVelocityContact contact);
-
   void resolve_interpenetration(
     const std::vector<std::unique_ptr<Contact>>& contacts,
     int max_iterations) override;
-  void reolve_penetration(InterpenetrationContact contact);
 };
