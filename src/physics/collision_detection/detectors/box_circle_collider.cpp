@@ -1,3 +1,4 @@
+#include <iostream>
 #include <memory>
 #include <optional>
 
@@ -20,15 +21,15 @@ evaluate_collision(const BoxCollider *box_collider,
     return std::nullopt;
 
   glm::vec2 collision_normal =
-      circle_collider->transform->position - box_collider->transform->position;
+      glm::normalize(circle_collider->transform->position - closest_box_point);
 
-  glm::vec2 relative_velocity = box_collider->particle->get_velocity() -
-                                circle_collider->particle->get_velocity();
+  glm::vec2 relative_velocity = circle_collider->particle->get_velocity() -
+                                box_collider->particle->get_velocity();
   float separating_velocity = glm::dot(relative_velocity, collision_normal);
   return std::make_unique<Contact>(
       Contact{collision_depth,
               collision_normal,
-              {box_collider->particle, circle_collider->particle},
+              {circle_collider->particle, box_collider->particle},
               separating_velocity});
 }
 
