@@ -1,3 +1,4 @@
+#include <iostream>
 #include "data_structures/priority_queue.hpp"
 #include "physics/collision_resolution/particle_contact_resolver.hpp"
 
