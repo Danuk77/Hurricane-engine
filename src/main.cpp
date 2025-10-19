@@ -45,10 +45,10 @@ game_loop()
 {
   GLFWwindow* window = create_window();
   InputReader reader;
-  //DifferentWeighingObjects scene;
+  DifferentWeighingObjects scene;
   //BoxAndCircle scene;
   //TwoBoxes scene;
-  TwoCircles scene;
+  //TwoCircles scene;
 
   while (!glfwWindowShouldClose(window)) {
     scene.render();

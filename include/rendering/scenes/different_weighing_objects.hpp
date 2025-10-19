@@ -17,8 +17,8 @@ public:
     //add_gameobject(std::move(circle));
     //add_gameobject(std::move(circle_1));
 
-    std::unique_ptr<Box> box = create_box("box", 100, 100, 150, 150, .5);
-    std::unique_ptr<Box> box_2 = create_box("box", 300, 300, 50, 50, .5);
+    std::unique_ptr<Box> box = create_box("box", 100, 100, 100, 100, .5);
+    std::unique_ptr<Box> box_2 = create_box("box", 300, 300, 100, 100, .5);
     add_gameobject(std::move(box_2));
     add_gameobject(std::move(box));
   };

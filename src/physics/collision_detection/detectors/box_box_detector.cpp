@@ -31,13 +31,13 @@ BoxColliderEdgeCoordinates
 generate_box_collider_coordinates(const BoxCollider *collider) {
   BoxColliderEdgeCoordinates coordinates;
   coordinates.right_edge_x =
-      collider->transform->position.x + collider->half_width;
+      collider->transform->position.x + (2 * collider->half_width);
   coordinates.left_edge_x =
-      collider->transform->position.x - collider->half_width;
+      collider->transform->position.x;
   coordinates.upper_edge_y =
-      collider->transform->position.y + collider->half_height;
+      collider->transform->position.y + (2 * collider->half_height);
   coordinates.lower_edge_y =
-      collider->transform->position.y - collider->half_height;
+      collider->transform->position.y;
 
   return coordinates;
 }
@@ -48,7 +48,6 @@ bool is_colliding(const BoxColliderEdgeCoordinates *collider_one_coordinates,
                                        collider_two_coordinates->left_edge_x &&
                                    collider_two_coordinates->right_edge_x >=
                                        collider_one_coordinates->left_edge_x;
-  if(!is_colliding_horizontally) std::cout << collider_one_coordinates->left_edge_x << " " << collider_two_coordinates->right_edge_x << std::endl;
   bool is_colliding_vertically = collider_one_coordinates->upper_edge_y >=
                                      collider_two_coordinates->lower_edge_y &&
                                  collider_two_coordinates->upper_edge_y >=
