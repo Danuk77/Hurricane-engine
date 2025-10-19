@@ -11,15 +11,15 @@ class DifferentWeighingObjects : public Scene
 public:
   DifferentWeighingObjects()
   {
-    std::unique_ptr<Circle> circle = create_circle("circle", 20, 20, 50, .5);
-    std::unique_ptr<Circle> circle_1 = create_circle("circle", 100, 100, 50, .5);
+    std::unique_ptr<Circle> circle = create_circle("circle", 400, 40, 50, .5);
+    //std::unique_ptr<Circle> circle_1 = create_circle("circle", 100, 100, 50, .5);
 
     add_gameobject(std::move(circle));
-    add_gameobject(std::move(circle_1));
+    //add_gameobject(std::move(circle_1));
 
-    //std::unique_ptr<Box> box = create_box("box", 100, 100, 100, 100, .5);
+    std::unique_ptr<Box> box = create_box("box", 100, 100, 200, 200, .5);
     //std::unique_ptr<Box> box_2 = create_box("box", 300, 300, 100, 100, .5);
     //add_gameobject(std::move(box_2));
-    //add_gameobject(std::move(box));
+    add_gameobject(std::move(box));
   };
 };
