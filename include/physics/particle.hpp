@@ -6,7 +6,9 @@
 
 class Particle {
 public:
-  Particle(std::shared_ptr<Transform> transform, float mass);
+  Particle(std::shared_ptr<Transform> transform, float inverse_mass);
+  // NOTE: This constructor is for an immovable object (with inifinite mass of 0)
+  Particle(std::shared_ptr<Transform> transform);
   float inverse_mass;
 
   void apply_force(glm::vec2 force);

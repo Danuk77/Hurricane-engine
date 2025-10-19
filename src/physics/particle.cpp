@@ -13,6 +13,17 @@ Particle::Particle(std::shared_ptr<Transform> transform, float inverse_mass)
   damping_factor = 0.95f;
 }
 
+// NOTE: Constructor for an immovable object
+Particle::Particle(std::shared_ptr<Transform> transform)
+  : transform(transform)
+  , inverse_mass(0)
+{
+  velocity = glm::vec2(0);
+  acceleration = glm::vec2(0);
+  accumulated_force = glm::vec2(0);
+  damping_factor = 0;
+}
+
 void
 Particle::apply_force(glm::vec2 force)
 {
