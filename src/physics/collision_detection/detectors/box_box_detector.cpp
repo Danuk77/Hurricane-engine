@@ -12,6 +12,8 @@
 std::optional<std::unique_ptr<Contact>>
 evaluate_collision(const BoxCollider *collider_one,
                    const BoxCollider *collider_two) {
+
+
   BoxColliderEdgeCoordinates collider_one_coordinates =
       generate_box_collider_coordinates(collider_one);
   BoxColliderEdgeCoordinates collider_two_coordinates =
@@ -46,6 +48,7 @@ bool is_colliding(const BoxColliderEdgeCoordinates *collider_one_coordinates,
                                        collider_two_coordinates->left_edge_x &&
                                    collider_two_coordinates->right_edge_x >=
                                        collider_one_coordinates->left_edge_x;
+  if(!is_colliding_horizontally) std::cout << collider_one_coordinates->left_edge_x << " " << collider_two_coordinates->right_edge_x << std::endl;
   bool is_colliding_vertically = collider_one_coordinates->upper_edge_y >=
                                      collider_two_coordinates->lower_edge_y &&
                                  collider_two_coordinates->upper_edge_y >=
