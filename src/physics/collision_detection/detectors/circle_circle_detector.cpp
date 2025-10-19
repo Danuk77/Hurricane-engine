@@ -30,8 +30,8 @@ pre_process_circle_collision(const CircleCollider* collider_one,
                              const CircleCollider* collider_two)
 {
   return CircleContactPreprocessInformation{
-    glm::distance(collider_one->transform->position,
-                  collider_two->transform->position),
+    glm::distance(collider_one->transform->position + collider_one->radius,
+                  collider_two->transform->position + collider_two->radius),
     collider_one->radius + collider_two->radius
   };
 }
