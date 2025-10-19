@@ -35,7 +35,6 @@ main()
 }
 
 // TODO: Test
-// 1. Different weights
 // 3. One object with inifinnite weight (Should not be movable)
 // 4. Objects starting positions inside of each other
 // 5. Objects with different sizes
@@ -45,7 +44,7 @@ game_loop()
 {
   GLFWwindow* window = create_window();
   InputReader reader;
-  DifferentWeighingObjects scene;
+  //DifferentWeighingObjects scene;
   //BoxAndCircle scene;
   //TwoBoxes scene;
   //TwoCircles scene;
