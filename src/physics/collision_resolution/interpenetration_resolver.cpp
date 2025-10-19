@@ -28,7 +28,6 @@ resolve(InterpenetrationContact contact)
   float contact_depth = (*contact.contact)->contact_depth;
   glm::vec2 contact_normal = (*contact.contact)->contact_normal;
 
-  // TODO: Infinite mass objects are immovable
   if (contact_depth <= 0) {
     return;
   }
