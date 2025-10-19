@@ -8,33 +8,30 @@
 #include "physics/collision_detection/detectors/primitive_detector.hpp"
 
 std::optional<std::unique_ptr<Contact>>
-PrimitiveDetector::detect(const BoxCollider &collider_one,
-                          const BoxCollider &collider_two) const {
+PrimitiveDetector::detect(const BoxCollider& collider_one,
+                          const BoxCollider& collider_two) const
+{
   return evaluate_collision(&collider_one, &collider_two);
 }
 
 std::optional<std::unique_ptr<Contact>>
-PrimitiveDetector::detect(const CircleCollider &collider_one,
-                          const CircleCollider &collider_two) const {
+PrimitiveDetector::detect(const CircleCollider& collider_one,
+                          const CircleCollider& collider_two) const
+{
   return evaluate_collision(&collider_one, &collider_two);
 }
 std::optional<std::unique_ptr<Contact>>
-PrimitiveDetector::detect(const BoxCollider &collider_one,
-                          const CircleCollider &collider_two) const {
+PrimitiveDetector::detect(const BoxCollider& collider_one,
+                          const CircleCollider& collider_two) const
+{
   return evaluate_collision(&collider_one, &collider_two);
 }
 
 std::optional<std::unique_ptr<Contact>>
-PrimitiveDetector::detect(const CircleCollider &collider_one,
-                          const BoxCollider &collider_two) const {
+PrimitiveDetector::detect(const CircleCollider& collider_one,
+                          const BoxCollider& collider_two) const
+{
   std::optional<std::unique_ptr<Contact>> contact =
-      evaluate_collision(&collider_two, &collider_one);
-
-  // Reverse the collision normal as we always calculate the normal in the
-  // direction of the box collider
-  if (contact) {
-    contact->get()->contact_normal = -contact->get()->contact_normal;
-  }
-
+    evaluate_collision(&collider_two, &collider_one);
   return contact;
 }

@@ -48,15 +48,8 @@ generate_contacts(const ContactDetector& detector, Scene* scene)
 
       std::optional<std::unique_ptr<Contact>> contact =
         collider_one.accept_detector(detector, collider_two);
-
-      if (contact) {
+      if (contact)
         contacts.push_back(std::move(contact.value()));
-        scene->game_objects.at(0)->sprite_color = glm::vec3(1, 0, 0);
-        scene->game_objects.at(1)->sprite_color = glm::vec3(1, 0, 0);
-      } else {
-        scene->game_objects.at(0)->sprite_color = glm::vec3(0, 1, 0);
-        scene->game_objects.at(1)->sprite_color = glm::vec3(0, 1, 0);
-      }
     }
   }
   return contacts;

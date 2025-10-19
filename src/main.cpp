@@ -1,4 +1,4 @@
-#include "rendering/scenes/two_boxes.hpp"
+#include "rendering/scenes/different_weighing_objects.hpp"
 #define GLFW_USE_WIN32
 
 // clang-format off
@@ -6,38 +6,48 @@
 #include <GLFW/glfw3.h>
 // clang-format on
 
-#include <chrono>
-#include <iostream>
 #include <memory>
 #include <vector>
 
 #include "./clock.hpp"
+#include "data_structures/priority_queue.hpp"
 #include "input/input_reader.hpp"
 #include "physics/physics.hpp"
 #include "rendering/scene.hpp"
 #include "rendering/scenes/box_and_circle.hpp"
+#include "rendering/scenes/multiple_objects.hpp"
+#include "rendering/scenes/two_boxes.hpp"
+#include "rendering/scenes/two_circles.hpp"
 #include "rendering/screen.hpp"
-#include "data_structures/priority_queue.hpp"
 
-void game_loop();
-void clear_screen();
-void handle_user_input(const Scene &scene, GLFWwindow *window,
-                       InputReader *reader);
+void
+game_loop();
+void
+clear_screen();
+void
+handle_user_input(const Scene& scene, GLFWwindow* window, InputReader* reader);
 
-int main() {
+int
+main()
+{
   game_loop();
   return 0;
 }
 
-void game_loop() {
-  GLFWwindow *window = create_window();
-  InputReader reader;
-  // TwoBoxes scene;
-  // TwoCircles scene;
-  BoxAndCircle scene;
+// TODO: Test
+// 3. One object with inifinnite weight (Should not be movable)
+// 4. Objects starting positions inside of each other
+// 5. Objects with different sizes
 
-  // TODO: Move into separate frame rate tracker module
-  // int frames = 0;
+void
+game_loop()
+{
+  GLFWwindow* window = create_window();
+  InputReader reader;
+  //DifferentWeighingObjects scene;
+  //BoxAndCircle scene;
+  //TwoBoxes scene;
+  //TwoCircles scene;
 
   while (!glfwWindowShouldClose(window)) {
     scene.render();
@@ -49,27 +59,19 @@ void game_loop() {
     glfwSwapBuffers(window);
     clear_screen();
     glfwPollEvents();
-
-    // auto end_time = std::chrono::high_resolution_clock::now();
-    // std::chrono::duration<float> duration = end_time - start_time;
-    // frames++;
-
-    // if (duration.count() > 1) {
-    //   start_time = std::chrono::high_resolution_clock::now();
-    //   //std::cout << frames << std::endl;
-
-    //  frames = 0;
-    //}
   }
 }
 
-void clear_screen() {
+void
+clear_screen()
+{
   glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
   glClear(GL_COLOR_BUFFER_BIT);
 }
 
-void handle_user_input(const Scene &scene, GLFWwindow *window,
-                       InputReader *reader) {
+void
+handle_user_input(const Scene& scene, GLFWwindow* window, InputReader* reader)
+{
   std::vector<Input> current_frame_inputs = reader->read_user_input(window);
 std:
   std::unique_ptr<GameObject> movable_box;

@@ -12,6 +12,8 @@
 std::optional<std::unique_ptr<Contact>>
 evaluate_collision(const BoxCollider *collider_one,
                    const BoxCollider *collider_two) {
+
+
   BoxColliderEdgeCoordinates collider_one_coordinates =
       generate_box_collider_coordinates(collider_one);
   BoxColliderEdgeCoordinates collider_two_coordinates =
@@ -29,13 +31,13 @@ BoxColliderEdgeCoordinates
 generate_box_collider_coordinates(const BoxCollider *collider) {
   BoxColliderEdgeCoordinates coordinates;
   coordinates.right_edge_x =
-      collider->transform->position.x + collider->half_width;
+      collider->transform->position.x + (2 * collider->half_width);
   coordinates.left_edge_x =
-      collider->transform->position.x - collider->half_width;
+      collider->transform->position.x;
   coordinates.upper_edge_y =
-      collider->transform->position.y + collider->half_height;
+      collider->transform->position.y + (2 * collider->half_height);
   coordinates.lower_edge_y =
-      collider->transform->position.y - collider->half_height;
+      collider->transform->position.y;
 
   return coordinates;
 }
