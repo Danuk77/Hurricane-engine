@@ -36,7 +36,6 @@ resolve(SeparatingVelocityContact contact)
   float separating_velocity_in_contact_normal =
     (*contact.contact)->separating_velocity;
 
-  // TODO: (BUG) One item might have a mass and hence it should be moved
   if (separating_velocity_in_contact_normal > 0 || total_inverse_mass < 0) {
     return;
   }
