@@ -9,6 +9,7 @@
 #include "physics/collision_detection/detectors/primitive_detector.hpp"
 #include "physics/collision_resolution/particle_contact_resolver.hpp"
 #include "physics/contact.hpp"
+#include "physics/force_generators/gravity.hpp"
 #include "rendering/scene.hpp"
 
 PrimitiveDetector detector;
@@ -17,21 +18,26 @@ ParticleContactResolver contact_resolver;
 void
 run_physics_loop(Scene* scene)
 {
-  apply_forces(scene);
+  apply_force_generators();
+  integrate_step(scene);
   std::vector<std::unique_ptr<Contact>> contacts =
     generate_contacts(detector, scene);
   contact_resolver.resolve_contacts(contacts, 1);
 }
 
+void apply_force_generators(){
+  GravityForceGenerator::apply_forces();
+};
+
 void
-apply_forces(Scene* scene)
+integrate_step(Scene* scene)
 {
   std::vector<std::unique_ptr<GameObject>>::iterator game_object_iterator;
 
   for (game_object_iterator = scene->game_objects.begin();
        game_object_iterator != scene->game_objects.end();
        game_object_iterator++) {
-    (*game_object_iterator)->apply_forces();
+    (*game_object_iterator)->integrate_step();
   }
 }
 
