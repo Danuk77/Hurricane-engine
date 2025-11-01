@@ -25,7 +25,9 @@ run_physics_loop(Scene* scene)
   contact_resolver.resolve_contacts(contacts, 1);
 }
 
-void apply_force_generators(){
+void
+apply_force_generators()
+{
   GravityForceGenerator::apply_forces();
 };
 

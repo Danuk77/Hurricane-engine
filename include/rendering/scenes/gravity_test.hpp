@@ -13,7 +13,7 @@ class GravityTest : public Scene
 public:
   GravityTest()
   {
-    std::unique_ptr<Circle> circle = create_circle("circle", 100, 100, 50, .5f);
+    std::unique_ptr<Circle> circle = create_circle("circle", 100, 100, 50, 1);
     std::unique_ptr<Box> ground =
       create_box("box_one", 0, 500, 800, 100, -1);
 

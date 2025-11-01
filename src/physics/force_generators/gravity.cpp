@@ -2,6 +2,13 @@
 
 std::vector<Particle*> GravityForceGenerator::subscribed_particles;
 
-void GravityForceGenerator::apply_forces(){
-  std::cout << subscribed_particles.size() << std::endl;
+const float GRAVITY_STRENGTH = 1000;
+
+void
+GravityForceGenerator::apply_forces()
+{
+  for (auto* particle : subscribed_particles) {
+    float gravity_force = GRAVITY_STRENGTH / (particle)->inverse_mass;
+    (particle)->apply_force(glm::vec2(0, gravity_force));
+  }
 };
