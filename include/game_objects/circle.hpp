@@ -26,7 +26,7 @@ public:
 
   void render() override;
   void handle_user_input(std::vector<Input> user_input) override;
-  void apply_forces() override {
+  void integrate_step() override {
     particle->execute_physics_tick(Clock::get_time_since_last_frame());
   }
   Particle *get_particle() override { return particle.get(); };

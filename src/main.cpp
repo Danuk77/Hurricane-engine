@@ -1,4 +1,4 @@
-#include "rendering/scenes/different_weighing_objects.hpp"
+#include "rendering/scenes/gravity_test.hpp"
 #define GLFW_USE_WIN32
 
 // clang-format off
@@ -14,11 +14,6 @@
 #include "input/input_reader.hpp"
 #include "physics/physics.hpp"
 #include "rendering/scene.hpp"
-#include "rendering/scenes/box_and_circle.hpp"
-#include "rendering/scenes/multiple_objects.hpp"
-#include "rendering/scenes/two_boxes.hpp"
-#include "rendering/scenes/two_circles.hpp"
-#include "rendering/scenes/infinite_weighing_object.hpp"
 #include "rendering/screen.hpp"
 
 void
@@ -35,20 +30,12 @@ main()
   return 0;
 }
 
-// TODO: Test
-// 3. One object with inifinnite weight (Should not be movable)
-// 4. Objects starting positions inside of each other
-
 void
 game_loop()
 {
   GLFWwindow* window = create_window();
   InputReader reader;
-  InifiniteWeighingObject scene;
-  //DifferentWeighingObjects scene;
-  //BoxAndCircle scene;
-  //TwoBoxes scene;
-  //TwoCircles scene;
+  GravityTest scene;
 
   while (!glfwWindowShouldClose(window)) {
     scene.render();

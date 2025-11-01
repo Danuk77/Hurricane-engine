@@ -14,7 +14,7 @@ public:
   virtual void render() = 0;
   virtual void handle_user_input(std::vector<Input> user_input) = 0;
   virtual Collider &get_collider() = 0;
-  virtual void apply_forces() = 0;
+  virtual void integrate_step() = 0;
   virtual Particle *get_particle() = 0;
   virtual void initialise_model_matrix() = 0;
 };
