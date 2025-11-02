@@ -18,12 +18,21 @@ void
 Scene::render()
 {
   while (!glfwWindowShouldClose(window)) {
+    execute_components();
     draw_scene();
     Clock::update_time();
     run_physics_loop(this);
     glfwSwapBuffers(window);
     clear_screen();
     glfwPollEvents();
+  }
+}
+
+void
+Scene::execute_components()
+{
+  for (auto& game_object : game_objects) {
+    game_object->execute_components();
   }
 }
 
@@ -41,4 +50,10 @@ clear_screen()
 {
   glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
   glClear(GL_COLOR_BUFFER_BIT);
+}
+
+const std::vector<std::unique_ptr<GameObject>>&
+Scene::get_gameobjects()
+{
+  return game_objects;
 }

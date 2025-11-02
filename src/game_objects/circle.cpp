@@ -1,8 +1,6 @@
-#include <algorithm>
 #include <memory>
 #include <string>
 #include <utility>
-#include <vector>
 
 #include "game_objects/gameobject.hpp"
 #include "glad/glad.h"
@@ -10,7 +8,6 @@
 #include <glm/ext/matrix_clip_space.hpp>
 #include <glm/ext/matrix_transform.hpp>
 
-#include "./clock.hpp"
 #include "./file_reader.hpp"
 #include "game_objects/circle.hpp"
 #include "physics/colliders/circle_collider.hpp"
@@ -125,64 +122,4 @@ Circle::render()
   glBindVertexArray(Circle::vertex_array_object);
   glDrawArrays(GL_TRIANGLES, 0, 6);
   glBindVertexArray(0);
-}
-
-void
-Circle::handle_user_input(std::vector<Input> user_input)
-{
-  std::vector<Input>::iterator user_input_iterator;
-
-  for (user_input_iterator = user_input.begin();
-       user_input_iterator != user_input.end();
-       user_input_iterator++) {
-    move(*user_input_iterator);
-  }
-}
-
-void
-Circle::move(Input direction)
-{
-  float movement_force = 100;
-  switch (direction) {
-    case LEFT:
-      move_left(movement_force);
-      break;
-    case RIGHT:
-      move_right(movement_force);
-      break;
-    case UP:
-      move_up(movement_force);
-      break;
-    case DOWN:
-      move_down(movement_force);
-      break;
-  }
-
-  initialise_model_matrix();
-}
-
-void
-Circle::move_left(float movement_force)
-{
-  particle->apply_force(glm::vec2(-movement_force, 0));
-}
-
-void
-Circle::move_right(float movement_force)
-{
-  particle->apply_force(glm::vec2(movement_force, 0));
-}
-
-void
-Circle::move_up(float movement_force)
-{
-  // Up and down is reversed
-  particle->apply_force(glm::vec2(0, -movement_force));
-}
-
-void
-Circle::move_down(float movement_force)
-{
-  // Up and down is reversed
-  particle->apply_force(glm::vec2(0, movement_force));
 }

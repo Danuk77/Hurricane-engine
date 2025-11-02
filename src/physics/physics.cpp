@@ -34,7 +34,7 @@ apply_force_generators()
 void
 integrate_step(Scene* scene)
 {
-  for (auto& game_object : scene->game_objects) {
+  for (auto& game_object : scene->get_gameobjects()) {
     game_object->integrate_step();
   }
 }
@@ -44,13 +44,13 @@ std::vector<std::unique_ptr<Contact>>
 generate_contacts(const ContactDetector& detector, Scene* scene)
 {
   std::vector<std::unique_ptr<Contact>> contacts;
-  const auto& objects = scene->game_objects;
-  
+  const auto& objects = scene->get_gameobjects();
+
   for (size_t i = 0; i < objects.size(); i++) {
     for (size_t j = i + 1; j < objects.size(); j++) {
       auto& collider_one = objects[i]->get_collider();
       auto& collider_two = objects[j]->get_collider();
-      
+
       if (auto contact = collider_one.accept_detector(detector, collider_two)) {
         contacts.push_back(std::move(*contact));
       }

@@ -28,7 +28,7 @@ ParticleContactResolver::resolve_velocity(
 void
 resolve(SeparatingVelocityContact contact)
 {
-  float coefficient_of_restitution = 1;
+  float coefficient_of_restitution = .1;
   glm::vec2 contact_normal = (*contact.contact)->contact_normal;
   float total_inverse_mass =
     (*contact.contact)->particles_in_contact.at(0)->inverse_mass +
