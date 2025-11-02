@@ -34,12 +34,8 @@ apply_force_generators()
 void
 integrate_step(Scene* scene)
 {
-  std::vector<std::unique_ptr<GameObject>>::iterator game_object_iterator;
-
-  for (game_object_iterator = scene->game_objects.begin();
-       game_object_iterator != scene->game_objects.end();
-       game_object_iterator++) {
-    (*game_object_iterator)->integrate_step();
+  for (auto& game_object : scene->game_objects) {
+    game_object->integrate_step();
   }
 }
 
@@ -48,15 +44,16 @@ std::vector<std::unique_ptr<Contact>>
 generate_contacts(const ContactDetector& detector, Scene* scene)
 {
   std::vector<std::unique_ptr<Contact>> contacts;
-  for (unsigned int i = 0; i < scene->game_objects.size(); i++) {
-    for (unsigned int j = i + 1; j < scene->game_objects.size(); j++) {
-      Collider& collider_one = scene->game_objects.at(i)->get_collider();
-      Collider& collider_two = scene->game_objects.at(j)->get_collider();
-
-      std::optional<std::unique_ptr<Contact>> contact =
-        collider_one.accept_detector(detector, collider_two);
-      if (contact)
-        contacts.push_back(std::move(contact.value()));
+  const auto& objects = scene->game_objects;
+  
+  for (size_t i = 0; i < objects.size(); i++) {
+    for (size_t j = i + 1; j < objects.size(); j++) {
+      auto& collider_one = objects[i]->get_collider();
+      auto& collider_two = objects[j]->get_collider();
+      
+      if (auto contact = collider_one.accept_detector(detector, collider_two)) {
+        contacts.push_back(std::move(*contact));
+      }
     }
   }
   return contacts;
