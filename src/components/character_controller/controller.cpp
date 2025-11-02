@@ -3,7 +3,7 @@
 
 InputReader reader;
 const int MOVEMENT_FORCE = 100;
-const int JUMP_FORCE = 5000;
+const int JUMP_FORCE = 100000;
 
 void
 CharacterController::execute_component()
@@ -53,6 +53,9 @@ CharacterController::move_right()
 void
 CharacterController::jump()
 {
-  // Up and down is reversed
-  particle->apply_force(glm::vec2(0, -JUMP_FORCE));
+  // TODO: This is not a proper fix. Fix this once a hook is available to know when the object is grounded
+  // SHould only allow when the object is grounded
+  if(particle->get_velocity().y < 3 && particle->get_velocity().y > -3){
+    particle->apply_force(glm::vec2(0, -JUMP_FORCE));
+  }
 }
