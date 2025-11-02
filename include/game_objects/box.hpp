@@ -15,10 +15,9 @@
 
 Shader load_shaders();
 
+
 class Box : public GameObject {
 public:
-  std::string box_name;
-
   Box(std::string box_name, std::shared_ptr<Transform> Transform,
       std::unique_ptr<BoxCollider> collider,
       std::shared_ptr<Particle> particle);
@@ -28,19 +27,9 @@ public:
   void integrate_step() override {
     particle->execute_physics_tick(Clock::get_time_since_last_frame());
   }
-  Particle *get_particle() override { return particle.get(); };
-
   BoxCollider &get_collider() override;
 
 private:
-  // Game object specific fields
-  std::shared_ptr<Transform> transform;
-  std::unique_ptr<BoxCollider> collider;
-  std::shared_ptr<Particle> particle;
-  Shader shader_program;
-  float movement_velocity = 100.0f;
-
-  // Rendering specific fields
   static unsigned int vertex_array_object, vertex_buffer_object;
   static glm::mat4 projection_matrix;
   glm::mat4 model_matrix;
