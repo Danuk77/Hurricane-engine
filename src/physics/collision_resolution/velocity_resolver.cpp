@@ -23,12 +23,13 @@ ParticleContactResolver::resolve_velocity(
   }
 }
 
+// TODO: Add optimisations for micro collisions (Refer to page 354)
 // TODO: coefficient_of_restitution needs to be hardcoded elsewhere for each
 // pair of materials
 void
 resolve(SeparatingVelocityContact contact)
 {
-  float coefficient_of_restitution = .1;
+  float coefficient_of_restitution = .5;
   glm::vec2 contact_normal = (*contact.contact)->contact_normal;
   float total_inverse_mass =
     (*contact.contact)->particles_in_contact.at(0)->inverse_mass +

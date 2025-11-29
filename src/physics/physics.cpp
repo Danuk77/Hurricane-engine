@@ -22,7 +22,7 @@ run_physics_loop(Scene* scene)
   integrate_step(scene);
   std::vector<std::unique_ptr<Contact>> contacts =
     generate_contacts(detector, scene);
-  contact_resolver.resolve_contacts(contacts, 1);
+  contact_resolver.resolve_contacts(contacts, 5);
 }
 
 void
